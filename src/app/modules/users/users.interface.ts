@@ -1,7 +1,3 @@
-
-import {Schema,model} from 'mongoose';
-
-
 // interfce > schema > model 
 
 
