@@ -1,22 +1,33 @@
-
-
 import mongoose from "mongoose";
 import app from "./app";
 import config from "./config";
-const port = 3000;
+import {successLogger,errorLogger} from "./shared/logger/logger";
+
 
 
 async function dbConn(){
     try {
         await mongoose.connect(config.db_url as string)
-        console.log('Database connected successfully')
+        successLogger.info('Database connected successfully')
 
         app.listen(config.port,()=>{
-            console.log(`connection established on ${config.port}`)
+            successLogger.info(`connection established on ${config.port}`)
         })
     } catch (error) {
-        console.log('Database connection failed')
+        errorLogger.error('Database connection failed')
     }
+
+
+    // mongoose.connect(config.db_url as string)
+    // .then(() => {
+    //     console.log('MongoDB connected');
+    //     app.listen(config.port,()=>{
+    //         console.log(`connection established to server on ${config.port}`)
+    //     })
+    // })
+    // .catch(err => {
+    //     console.log('MongoDB connection error:', err);
+    // });
 }
 
 dbConn();
