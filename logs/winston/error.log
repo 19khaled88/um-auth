@@ -1,1 +1,12 @@
 {"level":"error","message":"Database connection failed","service":"user-service","timestamp":"2024-10-11 17:06:48"}
+{"level":"error","service":"user-service","timestamp":"2024-10-11 19:39:10"}
+{"level":"error","service":"user-service","timestamp":"2024-10-11 21:27:34"}
+{"level":"error","message":"error: error Unhandled Promise Rejection","service":"user-service","stack":"Error: Unhandled Promise Rejection\n    at E:\\programmingheroNextLevel\\UM\\auth\\src\\app.ts:19:20\n    at Generator.next (<anonymous>)\n    at E:\\programmingheroNextLevel\\UM\\auth\\src\\app.ts:8:71\n    at new Promise (<anonymous>)\n    at __awaiter (E:\\programmingheroNextLevel\\UM\\auth\\src\\app.ts:4:12)\n    at E:\\programmingheroNextLevel\\UM\\auth\\src\\app.ts:18:64\n    at Layer.handle [as handle_request] (E:\\programmingheroNextLevel\\UM\\auth\\node_modules\\express\\lib\\router\\layer.js:95:5)\n    at next (E:\\programmingheroNextLevel\\UM\\auth\\node_modules\\express\\lib\\router\\route.js:149:13)\n    at Route.dispatch (E:\\programmingheroNextLevel\\UM\\auth\\node_modules\\express\\lib\\router\\route.js:119:3)\n    at Layer.handle [as handle_request] (E:\\programmingheroNextLevel\\UM\\auth\\node_modules\\express\\lib\\router\\layer.js:95:5)","timestamp":"2024-10-11 21:28:10"}
+{"level":"error","service":"user-service","timestamp":"2024-10-11 21:28:43"}
+{"level":"error","service":"user-service","timestamp":"2024-10-11 21:29:39"}
+{"level":"error","service":"user-service","timestamp":"2024-10-11 21:31:43"}
+{"level":"error","service":"user-service","timestamp":"2024-10-11 21:46:28"}
+{"level":"error","service":"user-service","timestamp":"2024-10-11 21:47:19"}
+{"level":"error","service":"user-service","timestamp":"2024-10-11 21:50:37"}
+{"level":"error","service":"user-service","timestamp":"2024-10-11 22:02:28"}
+{"level":"error","message":"Database connection failed","service":"user-service","timestamp":"2024-10-11 22:03:48"}
