@@ -10,3 +10,22 @@
 {"level":"error","service":"user-service","timestamp":"2024-10-11 21:50:37"}
 {"level":"error","service":"user-service","timestamp":"2024-10-11 22:02:28"}
 {"level":"error","message":"Database connection failed","service":"user-service","timestamp":"2024-10-11 22:03:48"}
+{"level":"error","service":"user-service","statusCode":409,"timestamp":"2024-10-13 19:39:10"}
+{"level":"error","service":"user-service","statusCode":409,"timestamp":"2024-10-13 19:42:36"}
+{"level":"error","service":"user-service","statusCode":409,"timestamp":"2024-10-13 19:46:05"}
+{"level":"error","service":"user-service","statusCode":409,"timestamp":"2024-10-13 19:47:08"}
+{"level":"error","service":"user-service","statusCode":409,"timestamp":"2024-10-13 19:48:01"}
+{"level":"error","service":"user-service","statusCode":409,"timestamp":"2024-10-13 19:54:21"}
+{"level":"error","service":"user-service","statusCode":409,"timestamp":"2024-10-13 19:54:42"}
+{"level":"error","service":"user-service","statusCode":409,"timestamp":"2024-10-13 19:56:32"}
+{"level":"error","service":"user-service","statusCode":409,"timestamp":"2024-10-13 19:59:07"}
+{"level":"error","service":"user-service","statusCode":409,"timestamp":"2024-10-13 20:02:53"}
+{"level":"error","service":"user-service","statusCode":400,"timestamp":"2024-10-13 21:42:31"}
+{"level":"error","service":"user-service","statusCode":400,"timestamp":"2024-10-13 21:52:14"}
+{"level":"error","service":"user-service","statusCode":400,"timestamp":"2024-10-13 21:55:40"}
+{"level":"error","service":"user-service","statusCode":400,"timestamp":"2024-10-13 21:58:30"}
+{"level":"error","service":"user-service","statusCode":409,"timestamp":"2024-10-13 22:00:13"}
+{"level":"error","service":"user-service","statusCode":409,"timestamp":"2024-10-13 22:48:44"}
+{"level":"error","service":"user-service","statusCode":409,"timestamp":"2024-10-13 23:01:29"}
+{"level":"error","service":"user-service","statusCode":409,"timestamp":"2024-10-13 23:03:26"}
+{"level":"error","service":"user-service","statusCode":409,"timestamp":"2024-10-13 23:04:27"}

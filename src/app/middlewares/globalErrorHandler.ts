@@ -15,28 +15,14 @@ const globalErrorHandler:ErrorRequestHandler =(
 )=>{
 
     // config.env === 'development'?console.log('globalErrorHandler',err) : errorLogger.error('globalErrorHandler',err)
-  
-   
+    
     let statusCode = 500;
     let message ='Something went wrong'
     let errorMessage:IGenericErrorMessage[] = []
 
-    if(err?.name === 'ValidationError'){
-        const simplifiedError = handleValidationError(err)
-
-        statusCode = simplifiedError.statusCode;
-        message = simplifiedError.message;
-        errorMessage = simplifiedError.errorMessage
-    }else if(err instanceof ZodError){
-        
-        const simplifiedError = handleZodError(err)
-       
-        statusCode = simplifiedError.statusCode;
-        message = simplifiedError.message;
-        errorMessage = simplifiedError.errorMessage;
-    }else if(err instanceof Error){
-        
-        message = err?.message; 
+    if(err instanceof ApiError){
+        statusCode = err?.statusCode
+        message = err?.message 
         errorMessage = err?.message?
         [
             {
@@ -44,9 +30,19 @@ const globalErrorHandler:ErrorRequestHandler =(
                 message:err?.message
             }
         ]:[]
-    }else if(err instanceof ApiError){
-        statusCode = err?.statusCode
-        message = err?.message 
+    }
+    else if(err?.name === 'ValidationError'){
+        const simplifiedError = handleValidationError(err)
+        statusCode = simplifiedError.statusCode;
+        message = simplifiedError.message;
+        errorMessage = simplifiedError.errorMessage
+    }else if(err instanceof ZodError){
+        const simplifiedError = handleZodError(err)
+        statusCode = simplifiedError.statusCode;
+        message = simplifiedError.message;
+        errorMessage = simplifiedError.errorMessage;
+    }else if(err instanceof Error){
+        message = err?.message; 
         errorMessage = err?.message?
         [
             {

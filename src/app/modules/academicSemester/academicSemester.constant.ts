@@ -6,3 +6,10 @@ export const title:IAcademicSemesterTitle[] =['Autumn','Summer','Fall']
 export const academicSemesterTitle:IAcademicSemesterTitle[] = title
 export const code:IAcademicSemesterCode[] =['01','02','03']
 export const academicSemesterCode:IAcademicSemesterCode[] = code
+
+
+export const academicSemesterTitleCodeMapper:{[key:string]:string}  ={
+    Autumn:'01',
+    Summer:'02',
+    Fall:'03'
+}
