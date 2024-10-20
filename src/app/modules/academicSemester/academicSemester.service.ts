@@ -21,9 +21,6 @@ const createSemester=async(payload:IAcademicSemester):Promise<IAcademicSemester 
     
 }
 
-
-
-
 const getAllAcademicSemester = async(
     filters:IAcademicSemeterFilters,
     payload:IPagniationOptions
@@ -88,7 +85,7 @@ const getAllAcademicSemester = async(
                 .skip(skip)
                 .limit(limit);
     
-            total = await AcademicSemester.countDocuments({ $and: andCondition });
+            total = await AcademicSemester.countDocuments({ $and: andCondition.length > 0 ? andCondition: [{}] });
         }
     }
 
@@ -102,7 +99,13 @@ const getAllAcademicSemester = async(
     }
 }
 
+const getSingleAcademicSemester = async(id:string):Promise<IAcademicSemester | null>=>{
+    const result = await AcademicSemester.findById(id)
+    return result
+}
+
 export const AcademicSemesterService = {
     createSemester,
-    getAllAcademicSemester
+    getAllAcademicSemester,
+    getSingleAcademicSemester
 }

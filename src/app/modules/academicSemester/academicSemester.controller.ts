@@ -58,7 +58,19 @@ const getAllAcademicSemester = catchAsnc(
  
 )
 
+const getSingleAcademicSemester = catchAsnc(async(req:Request,res:Response,next:NextFunction)=>{
+    const result = await AcademicSemesterService.getSingleAcademicSemester(req.params.id)
+
+    sendResponse(res,{
+        statusCode:httpStatus.OK,
+        success:true,
+        message:'Single academic semester info found for given data',
+        data:result
+    })
+})
+
 export const academicSemesterController = {
     createAcademicSemester,
-    getAllAcademicSemester
+    getAllAcademicSemester,
+    getSingleAcademicSemester
 }
