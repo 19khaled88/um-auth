@@ -1007,3 +1007,596 @@
 {"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 08:58:29"}
 {"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:11:40"}
 {"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:11:40"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:19:55"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:19:55"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:21:41"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:21:41"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:21:47"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:21:47"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:21:50"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:21:50"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:21:55"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:21:55"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:22:06"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:22:06"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:22:11"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:22:11"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:22:13"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:22:13"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:22:15"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:22:15"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:22:18"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:22:18"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:23:02"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:23:02"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:23:04"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:23:04"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:23:08"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:23:08"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:23:14"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:23:14"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:23:16"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:23:16"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:23:19"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:23:19"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:23:23"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:23:23"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:23:25"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:23:25"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:23:31"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:23:31"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:23:39"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:23:39"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:23:57"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:23:57"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:24:40"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:24:40"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:24:48"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:24:48"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:27:01"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:27:01"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:27:10"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:27:10"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:27:15"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:27:15"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:27:51"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:27:51"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:28:06"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:28:06"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:28:10"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:28:10"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:28:16"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:28:16"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:28:29"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:28:29"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:28:31"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:28:31"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:28:33"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:28:33"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:28:36"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:28:36"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:28:46"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:28:46"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:28:58"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:28:58"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:31:38"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:31:38"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:31:39"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:31:39"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:31:43"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:31:43"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:31:47"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:31:47"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:31:51"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:31:51"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:31:54"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:31:54"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:32:40"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:32:40"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:32:42"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:32:42"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:32:47"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:32:47"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:32:55"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:32:55"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:33:01"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:33:01"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:33:08"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:33:08"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:33:14"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:33:14"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:33:31"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:33:31"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:33:38"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:33:38"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:33:40"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:33:40"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:34:21"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:34:21"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:34:34"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:34:34"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:34:44"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:34:44"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:35:07"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:35:07"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:35:11"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:35:11"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:35:16"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:35:16"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:35:19"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:35:19"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:36:12"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:36:12"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:36:14"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:36:14"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:37:10"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:37:10"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:37:22"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:37:22"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:37:29"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:37:29"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:39:16"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:39:16"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:39:19"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:39:19"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:39:23"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:39:23"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:39:54"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:39:54"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:39:58"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:39:58"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:40:56"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:40:56"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:41:04"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:41:04"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:41:06"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:41:06"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:41:08"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:41:08"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:41:11"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:41:11"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:41:13"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:41:13"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:41:27"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:41:27"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:41:58"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:41:58"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:50:57"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:50:57"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:50:58"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:50:58"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:51:00"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:51:00"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:51:03"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:51:03"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:51:11"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:51:11"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:51:25"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:51:25"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:51:27"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:51:27"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:53:50"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:53:50"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:54:41"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:54:41"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:56:23"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:56:23"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:56:35"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:56:35"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:56:43"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:56:43"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:56:45"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:56:45"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:56:48"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:56:48"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:56:56"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:56:56"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:56:59"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:56:59"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:57:00"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:57:00"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:57:04"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:57:04"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:57:10"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:57:10"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:57:14"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:57:14"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:57:17"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:57:17"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:57:23"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:57:23"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:57:25"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:57:25"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:57:27"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:57:27"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:57:30"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:57:30"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:57:39"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:57:39"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:57:41"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:57:41"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:57:46"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:57:46"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:57:51"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:57:51"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:58:36"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:58:36"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:58:49"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:58:49"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:58:56"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:58:56"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:59:03"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:59:03"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:59:05"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:59:05"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:59:09"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:59:09"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 20:59:13"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 20:59:13"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 21:00:09"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 21:00:09"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 21:00:16"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 21:00:16"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 21:00:18"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 21:00:18"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 21:00:20"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 21:00:20"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 21:00:21"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 21:00:21"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 21:00:26"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 21:00:26"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 21:00:35"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 21:00:35"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 21:00:40"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 21:00:40"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 21:01:03"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 21:01:03"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 21:01:05"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 21:01:05"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 21:01:06"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 21:01:06"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 21:01:08"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 21:01:08"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 21:01:58"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 21:01:58"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 21:02:13"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 21:02:13"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 21:02:20"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 21:02:20"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 21:09:14"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 21:09:14"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 21:10:16"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 21:10:16"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 21:10:26"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 21:10:26"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 21:10:40"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 21:10:40"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 21:10:42"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 21:10:42"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 21:10:43"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 21:10:44"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:43:58"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:43:58"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:44:02"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:44:02"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:44:03"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:44:03"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:44:23"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:44:23"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:47:51"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:47:51"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:48:00"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:48:00"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:48:08"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:48:08"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:48:11"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:48:11"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:48:28"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:48:28"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:48:36"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:48:36"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:48:40"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:48:40"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:48:50"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:48:50"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:48:56"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:48:56"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:49:06"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:49:06"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:49:09"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:49:09"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:49:11"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:49:11"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:49:14"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:49:14"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:49:17"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:49:17"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:49:18"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:49:18"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:49:21"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:49:21"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:50:05"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:50:05"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:50:58"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:50:58"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:51:02"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:51:02"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:51:40"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:51:40"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:51:43"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:51:43"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:51:47"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:51:47"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:51:52"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:51:52"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:52:05"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:52:05"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:52:07"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:52:07"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:52:10"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:52:10"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:52:13"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:52:13"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-16 22:52:16"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-16 22:52:16"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-20 23:02:45"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-20 23:02:45"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-20 23:28:21"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-20 23:28:21"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-20 23:37:16"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-20 23:37:16"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-20 23:37:19"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-20 23:37:19"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-20 23:37:24"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-20 23:37:24"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-20 23:37:57"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-20 23:37:57"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-20 23:38:22"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-20 23:38:22"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-20 23:38:26"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-20 23:38:26"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-20 23:38:46"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-20 23:38:47"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-20 23:38:48"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-20 23:38:48"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-20 23:38:58"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-20 23:38:58"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-20 23:41:21"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-20 23:41:21"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-20 23:41:24"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-20 23:41:24"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-20 23:41:27"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-20 23:41:27"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-20 23:41:59"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-20 23:41:59"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-20 23:42:03"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-20 23:42:03"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-20 23:42:10"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-20 23:42:10"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-20 23:44:19"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-20 23:44:19"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-20 23:44:36"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-20 23:44:36"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-20 23:48:26"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-20 23:48:26"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-20 23:53:05"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-20 23:53:05"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-20 23:53:08"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-20 23:53:08"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-20 23:53:10"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-20 23:53:10"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-20 23:53:18"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-20 23:53:18"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-20 23:53:24"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-20 23:53:24"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-20 23:53:27"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-20 23:53:27"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-20 23:59:45"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-20 23:59:45"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-20 23:59:53"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-20 23:59:53"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-20 23:59:57"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-20 23:59:57"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:00:03"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:00:03"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:00:57"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:00:57"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:01:03"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:01:03"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:01:07"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:01:07"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:01:19"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:01:19"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:01:21"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:01:21"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:01:26"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:01:26"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:02:16"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:02:16"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:02:21"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:02:21"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:02:37"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:02:37"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:03:05"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:03:05"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:03:09"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:03:09"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:05:07"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:05:07"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:05:10"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:05:10"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:08:52"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:08:52"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:08:57"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:08:57"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:09:05"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:09:05"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:10:25"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:10:25"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:10:28"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:10:28"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:10:32"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:10:32"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:10:55"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:10:55"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:10:57"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:10:57"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:11:01"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:11:01"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:11:05"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:11:05"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:11:17"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:11:17"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:11:24"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:11:24"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:11:30"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:11:30"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:12:22"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:12:22"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:12:25"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:12:25"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:12:28"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:12:28"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:12:32"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:12:32"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:13:09"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:13:09"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:13:13"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:13:13"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:13:53"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:13:53"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:14:44"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:14:44"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:14:48"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:14:48"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:14:58"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:14:58"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:15:01"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:15:01"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:20:02"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:20:02"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:20:05"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:20:05"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:20:22"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:20:22"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:20:35"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:20:35"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:20:37"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:20:37"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:20:41"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:20:41"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:21:13"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:21:13"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:21:17"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:21:17"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:21:30"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:21:30"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:22:45"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:22:45"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:23:23"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:23:23"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:23:25"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:23:25"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:24:38"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:24:38"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:24:43"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:24:43"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:25:36"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:25:36"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:26:19"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:26:19"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:26:22"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:26:22"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:26:23"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:26:23"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:26:25"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:26:25"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:26:59"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:26:59"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:27:06"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:27:06"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:27:32"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:27:32"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:27:38"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:27:38"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:27:39"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:27:39"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:27:56"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:27:56"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:30:12"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:30:12"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:30:17"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:30:17"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:39:48"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:39:48"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:39:55"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:39:55"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:40:55"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:40:55"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:41:37"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:41:37"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:41:41"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:41:41"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:41:49"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:41:49"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:47:12"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:47:12"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:47:19"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:47:19"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:47:24"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:47:24"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:47:27"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:47:27"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:47:32"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:47:33"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:47:33"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:47:36"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:47:36"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:47:40"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:47:40"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:47:43"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:47:43"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:47:46"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:47:46"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:47:47"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:47:47"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:47:49"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:47:49"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:47:52"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:47:52"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:48:07"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:48:07"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:49:03"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:49:03"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:54:13"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:54:13"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:54:17"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:54:17"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:54:45"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:54:45"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:54:48"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:54:48"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:54:53"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:54:53"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:54:58"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:54:58"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:55:50"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:55:50"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:55:56"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:55:56"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:56:02"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:56:02"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:56:05"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:56:05"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:56:12"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:56:12"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:56:28"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:56:28"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:56:38"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:56:38"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:56:40"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:56:40"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:56:42"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:56:42"}
+{"level":"info","message":"Database connected successfully","service":"user-service","timestamp":"2024-10-21 00:56:46"}
+{"level":"info","message":"connection established on 5000","service":"user-service","timestamp":"2024-10-21 00:56:46"}

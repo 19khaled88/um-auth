@@ -32,10 +32,11 @@ const academicSemesterSchema = new Schema<IAcademicSemester>(
         required:true,
         enum:month
     }
-},
-{
-    timestamps:true,
-})
+    },
+    {
+        timestamps:true,
+    }
+)
 
 // pre hook 
 academicSemesterSchema.pre('save', async function (next) {
