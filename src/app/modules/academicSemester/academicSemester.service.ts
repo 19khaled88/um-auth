@@ -104,8 +104,25 @@ const getSingleAcademicSemester = async(id:string):Promise<IAcademicSemester | n
     return result
 }
 
+const updateAcademicSemester=async(id:string,data:Partial<IAcademicSemester>)=>{
+    if(data.title && data.code && academicSemesterTitleCodeMapper[data.title] !== data.code){
+        throw new ApiError(400,'Semester must match with relevent code requirement')
+    }else {
+        const result = await AcademicSemester.findOneAndUpdate({_id:id},data,{new:true})
+        return result
+    }
+    
+}
+
+const deleteAcademicSemester = async(id:string)=>{
+    const result = await AcademicSemester.findByIdAndDelete({_id:id},{new:true})
+    return result
+}
+
 export const AcademicSemesterService = {
     createSemester,
     getAllAcademicSemester,
-    getSingleAcademicSemester
+    getSingleAcademicSemester,
+    updateAcademicSemester,
+    deleteAcademicSemester
 }

@@ -6,6 +6,7 @@ import handleValidationError from "../../errors/handleValidationError";
 import { errorLogger } from "../../shared/logger/logger";
 import { ZodError } from "zod";
 import handleZodError from "../../errors/handleZodError";
+import { handleCastError } from "../../errors/handleCastError";
 
 const globalErrorHandler:ErrorRequestHandler =(
     err,
@@ -41,6 +42,11 @@ const globalErrorHandler:ErrorRequestHandler =(
         statusCode = simplifiedError.statusCode;
         message = simplifiedError.message;
         errorMessage = simplifiedError.errorMessage;
+    }else if(err?.name === 'CastError'){
+        const simplifiedError = handleCastError(err)
+        statusCode = simplifiedError.statusCode;
+        message = simplifiedError.message;
+        errorMessage = simplifiedError.errorMessage;
     }else if(err instanceof Error){
         message = err?.message; 
         errorMessage = err?.message?
@@ -58,7 +64,7 @@ const globalErrorHandler:ErrorRequestHandler =(
         errorMessage,
         stack:config.env !== 'production' ? err?.stack : undefined,
     })
-    next()
+    
 }
 
 export default globalErrorHandler

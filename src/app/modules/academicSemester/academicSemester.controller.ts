@@ -10,7 +10,7 @@ import { searchAndFilterableFields } from "../../../constants/academicSemester";
 
 
 
-const createAcademicSemester= catchAsnc(async(req:Request,res:Response,next:NextFunction)=>{
+const createAcademicSemester= catchAsnc(async(req:Request,res:Response)=>{
   const {...academicSemesterData} = req.body
     const result = await AcademicSemesterService.createSemester(academicSemesterData);
     sendResponse(res,{
@@ -19,7 +19,7 @@ const createAcademicSemester= catchAsnc(async(req:Request,res:Response,next:Next
         message:'Academic semester created successfully',
         data:result
     })
-    next();
+   
 })
 
 
@@ -38,11 +38,8 @@ const createAcademicSemester= catchAsnc(async(req:Request,res:Response,next:Next
 // }
 
 
-
-
-
 const getAllAcademicSemester = catchAsnc(
-    async(req:Request,res:Response,next:NextFunction)=>{
+    async(req:Request,res:Response)=>{
         const filters = pick(req.query, searchAndFilterableFields)
         const paginationOptions = pick(req.query, paginationFields)
         const result = await AcademicSemesterService.getAllAcademicSemester(filters,paginationOptions)
@@ -58,7 +55,7 @@ const getAllAcademicSemester = catchAsnc(
  
 )
 
-const getSingleAcademicSemester = catchAsnc(async(req:Request,res:Response,next:NextFunction)=>{
+const getSingleAcademicSemester = catchAsnc(async(req:Request,res:Response)=>{
     const result = await AcademicSemesterService.getSingleAcademicSemester(req.params.id)
 
     sendResponse(res,{
@@ -69,8 +66,33 @@ const getSingleAcademicSemester = catchAsnc(async(req:Request,res:Response,next:
     })
 })
 
+const updateAcademicSemester = catchAsnc(async(req:Request,res:Response)=>{
+
+    const result = await AcademicSemesterService.updateAcademicSemester(req.params.id, req.body);
+
+    sendResponse(res,{
+        statusCode:httpStatus.OK,
+        success:true,
+        message:'Update for given id happend successflly',
+        data:result
+    })
+})
+
+const deleteAcademicSemester=catchAsnc(async(req:Request,res:Response,next:NextFunction)=>{
+    const result = await AcademicSemesterService.deleteAcademicSemester(req.params.id);
+
+    sendResponse(res,{
+        statusCode:httpStatus.OK,
+        success:true,
+        message:'academic semester deleted for given id',
+        data:result
+    })
+})
+
 export const academicSemesterController = {
     createAcademicSemester,
     getAllAcademicSemester,
-    getSingleAcademicSemester
+    getSingleAcademicSemester,
+    updateAcademicSemester,
+    deleteAcademicSemester
 }

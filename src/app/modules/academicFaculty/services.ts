@@ -4,33 +4,18 @@ import { SortOrder } from "mongoose"
 import config from "../../../config"
 import { paginationHelper } from "../../../helper/paginationHelper"
 import { IGenericResponse, IPagniationOptions } from "../../../shared/interfaces"
-import { IUser, IUserFilters } from "./users.interface"
-import { User } from "./users.model"
-import { generateUserId } from "./users.utils"
-import { usersSearchableFiels } from "../../../constants/user"
+import { IAcademicFaculty, IAcademicFacultyFilters } from "./interface"
+import { AcademicFaculty } from "./model"
+import { academicFacultySearchableFiels } from "../../../constants/academicFaculty"
 
-const createUser = async(user:IUser):Promise<IUser | null>=>{
-    
-    //generated pass
-    const id = await generateUserId()
-    user.id = id
+const createAcademicFaculty = async(academicFaculty:IAcademicFaculty):Promise<IAcademicFaculty | null>=>{
+    const result = await AcademicFaculty.create(academicFaculty) 
 
-    //default pass
-    if(!user.password){
-        user.password = config.default_st_pass as string
-    }
-
- 
-    const createdUser = await User.create(user)
+    return result
    
-
-    if(!createdUser){
-        throw new Error('Failed to create user')
-    }
-    return createdUser;
 }
 
-const getAllUsers = async(filters:IUserFilters,paginationOptions:IPagniationOptions):Promise<IGenericResponse<IUser[]>>=>{
+const getAllAcademicFaculties = async(filters:IAcademicFacultyFilters,paginationOptions:IPagniationOptions):Promise<IGenericResponse<IAcademicFaculty[]>>=>{
     const {searchTerm,...filtersData} = filters
     const {page,limit,skip,sortBy, sortOrder} = paginationHelper.calculatePagination(paginationOptions)
 
@@ -42,7 +27,7 @@ const getAllUsers = async(filters:IUserFilters,paginationOptions:IPagniationOpti
     // Initial search using string fields with regex
     if(searchTerm){
         andCondition.push({
-            $or:usersSearchableFiels.map((field)=>({
+            $or:academicFacultySearchableFiels.map((field)=>({
                 [field]:{
                     $regex:searchTerm,
                     $options:'i'
@@ -63,14 +48,14 @@ const getAllUsers = async(filters:IUserFilters,paginationOptions:IPagniationOpti
         sortConditions[sortBy] = sortOrder;
     }
 
-    let result = await User
+    let result = await AcademicFaculty
     .find({$and:andCondition.length > 0 ? andCondition: [{}] })
     .sort(sortConditions)
     .skip(skip)
     .limit(limit)
 
     // const total = await AcademicSemester.countDocuments()
-    let total = await User.countDocuments({ $and: andCondition.length > 0 ? andCondition : [{}] });
+    let total = await AcademicFaculty.countDocuments({ $and: andCondition.length > 0 ? andCondition : [{}] });
 
     return {
         meta:{
@@ -83,27 +68,27 @@ const getAllUsers = async(filters:IUserFilters,paginationOptions:IPagniationOpti
 
 }
 
-const singleUser = async(id:string)=>{
-    const result = await User.findById(id)
+const singleAcademicFaculty = async(id:string)=>{
+    const result = await AcademicFaculty.findById(id)
 
     return result
 }
 
-const deleteUser = async(id:string)=>{
-    const result = await User.findByIdAndDelete({_id:id},{new:true})
+const deleteAcademicFaculty = async(id:string)=>{
+    const result = await AcademicFaculty.findByIdAndDelete({_id:id},{new:true})
     return result
 }
 
-const updateUser = async(id:string,payload:Partial<IUser>)=>{
-    const result = await User.findByIdAndUpdate({_id:id},payload,{new:true})
+const updateAcademicFaculty = async(id:string,payload:Partial<IAcademicFaculty>)=>{
+    const result = await AcademicFaculty.findByIdAndUpdate({_id:id},payload,{new:true})
     return result
 }
 
 
-export const userService = {
-    createUser,
-    getAllUsers,
-    singleUser,
-    deleteUser,
-    updateUser
+export const academicFacultyService = {
+    createAcademicFaculty,
+    getAllAcademicFaculties,
+    singleAcademicFaculty,
+    deleteAcademicFaculty,
+    updateAcademicFaculty
 }
