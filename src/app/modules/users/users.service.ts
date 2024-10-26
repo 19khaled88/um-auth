@@ -1,109 +1,252 @@
 // only business logic intregrated in services
 
-import { SortOrder } from "mongoose"
-import config from "../../../config"
-import { paginationHelper } from "../../../helper/paginationHelper"
-import { IGenericResponse, IPagniationOptions } from "../../../shared/interfaces"
-import { IUser, IUserFilters } from "./users.interface"
-import { User } from "./users.model"
-import { generateUserId } from "./users.utils"
-import { usersSearchableFiels } from "../../../constants/user"
+import mongoose, { SortOrder } from "mongoose";
+import config from "../../../config";
+import { paginationHelper } from "../../../helper/paginationHelper";
+import {
+  IGenericResponse,
+  IPagniationOptions,
+} from "../../../shared/interfaces";
+import { IUser, IUserFilters } from "./users.interface";
+import { User } from "./users.model";
 
-const createUser = async(user:IUser):Promise<IUser | null>=>{
-    
-    //generated pass
-    const id = await generateUserId()
-    user.id = id
+import { usersSearchableFiels } from "../../../constants/user";
+import {
+  generateAdminId,
+  generateFacultyId,
+  generateStudentId,
+  generateSuperAdminId,
+} from "./users.utils";
+import { AcademicSemester } from "../academicSemester/academicSemester.model";
+import {
+  IAcademicSemester,
+  IAcademicSemesterCode,
+} from "../academicSemester/academicSemester.interface";
+import { IStudent } from "../student/interface";
+import { Student } from "../student/model";
+import ApiError from "../../../errors/ApiError";
+import httpStatus from "http-status";
+import byt from "bcrypt";
 
-    //default pass
-    if(!user.password){
-        user.password = config.default_st_pass as string
-    }
+const createStudent = async (
+  student: IStudent,
+  user: Partial<IUser>
+): Promise<IUser | null> => {
+  if (!user.password) {
+    user.password = config.default_st_pass as string;
+  }
 
  
-    const createdUser = await User.create(user)
-   
+  
+  user.role = "student";
+  const academicSemester = await AcademicSemester.findById(
+    student.academicSemester
+  );
 
-    if(!createdUser){
-        throw new Error('Failed to create user')
+  let newUserData = null;
+
+  // const session = await mongoose.startSession()
+  // try {
+  //     session.startTransaction()
+  //     const id =  await generateStudentId({year:academicSemester?.year,code:academicSemester?.code})
+  //     user.id = id
+  //     student.id = id
+
+  //     const newStudent = await Student.create([student],{session})
+
+  //     if(!newStudent.length){
+  //         throw new ApiError(httpStatus.BAD_REQUEST, 'Failed to create student')
+  //     }
+
+  //     console.log(newStudent)
+  //     user.student = newStudent[0]._id;
+  //     const newUser = await User.create([user],{session})
+  //     if(!newUser.length){
+  //         throw new ApiError(httpStatus.BAD_REQUEST,'User not created')
+  //     }
+
+  //     newUserData = newUser[0]
+
+  //     await session.commitTransaction()
+  //     await session.endSession()
+
+  // } catch (error) {
+  //     console.error('Error during transaction:', error);
+  //     await session.abortTransaction()
+  //     await session.endSession()
+  //     throw error;
+  // }
+
+  // transaction feature of mongodb applicable only on MongoDB replica set or sharded cluster (mongos)
+  try {
+    const id = await generateStudentId({
+      year: academicSemester?.year,
+      code: academicSemester?.code,
+    });
+    user.id = id;
+    student.id = id;
+
+    // Create student
+    const newStudent = await Student.create(student);
+    if (!newStudent) {
+      throw new ApiError(httpStatus.BAD_REQUEST, "Failed to create student");
     }
-    return createdUser;
-}
 
-const getAllUsers = async(filters:IUserFilters,paginationOptions:IPagniationOptions):Promise<IGenericResponse<IUser[]>>=>{
-    const {searchTerm,...filtersData} = filters
-    const {page,limit,skip,sortBy, sortOrder} = paginationHelper.calculatePagination(paginationOptions)
+    // Attach student to user
+    user.student = newStudent._id;
 
-    const sortConditions:{[key:string] : SortOrder} ={}
-
-    
-    const andCondition = []
-
-    // Initial search using string fields with regex
-    if(searchTerm){
-        andCondition.push({
-            $or:usersSearchableFiels.map((field)=>({
-                [field]:{
-                    $regex:searchTerm,
-                    $options:'i'
-                }
-            }))
-        })
+    // Create user
+    const newUser = await User.create(user);
+    if (!newUser) {
+      throw new ApiError(httpStatus.BAD_REQUEST, "User not created");
     }
 
-    if(Object.keys(filtersData).length){
-        andCondition.push({
-            $and:Object.entries(filtersData).map(([field, value])=>({
-                [field]:value
-            }))
-        })
-    }
+    newUserData = newUser;
+  } catch (error) {
+    console.error("Error during creation:", error); // Log the error
+    throw error;
+  }
 
-    if(sortBy && sortOrder){
-        sortConditions[sortBy] = sortOrder;
-    }
+  if (newUserData) {
+    newUserData = await User.findOne({ id: newUserData.id }).populate({
+      path: "student",
+      populate: [
+        {
+          path: "academicSemester",
+        },
+        {
+          path: "academicDepartment",
+        },
+        {
+          path: "academicFaculty",
+        },
+      ],
+    });
+  }
 
-    let result = await User
-    .find({$and:andCondition.length > 0 ? andCondition: [{}] })
+  return newUserData;
+};
+
+const createUser = async (
+  user: IUser,
+  academicSemester?: Partial<IAcademicSemester>
+): Promise<IUser | null> => {
+  let id: string;
+  //generated pass
+  if (user.role === "student") {
+    if (!academicSemester || !academicSemester.year || !academicSemester.code) {
+      throw new Error(
+        "Academic semester details are required for student ID generation."
+      );
+    }
+    id = await generateStudentId({
+      year: academicSemester.year,
+      code: academicSemester.code as IAcademicSemesterCode,
+    });
+  } else if (user.role === "admin") {
+    id = await generateAdminId();
+  } else if (user.role === "super_admin") {
+    id = await generateSuperAdminId();
+  } else if (user.role === "faculty") {
+    id = await generateFacultyId();
+  } else {
+    throw new Error("Unknown user role");
+  }
+  user.id = id;
+
+  //default pass
+  if (!user.password) {
+    user.password = config.default_st_pass as string;
+  }
+
+  const createdUser = await User.create(user);
+
+  if (!createdUser) {
+    throw new Error("Failed to create user");
+  }
+  return createdUser;
+};
+
+const getAllUsers = async (
+  filters: IUserFilters,
+  paginationOptions: IPagniationOptions
+): Promise<IGenericResponse<IUser[]>> => {
+  const { searchTerm, ...filtersData } = filters;
+  const { page, limit, skip, sortBy, sortOrder } =
+    paginationHelper.calculatePagination(paginationOptions);
+
+  const sortConditions: { [key: string]: SortOrder } = {};
+
+  const andCondition = [];
+
+  // Initial search using string fields with regex
+  if (searchTerm) {
+    andCondition.push({
+      $or: usersSearchableFiels.map((field) => ({
+        [field]: {
+          $regex: searchTerm,
+          $options: "i",
+        },
+      })),
+    });
+  }
+
+  if (Object.keys(filtersData).length) {
+    andCondition.push({
+      $and: Object.entries(filtersData).map(([field, value]) => ({
+        [field]: value,
+      })),
+    });
+  }
+
+  if (sortBy && sortOrder) {
+    sortConditions[sortBy] = sortOrder;
+  }
+
+  let result = await User.find({
+    $and: andCondition.length > 0 ? andCondition : [{}],
+  })
+    .populate("student")
     .sort(sortConditions)
     .skip(skip)
-    .limit(limit)
+    .limit(limit);
 
-    // const total = await AcademicSemester.countDocuments()
-    let total = await User.countDocuments({ $and: andCondition.length > 0 ? andCondition : [{}] });
+  // const total = await AcademicSemester.countDocuments()
+  let total = await User.countDocuments({
+    $and: andCondition.length > 0 ? andCondition : [{}],
+  });
+  return {
+    meta: {
+      page,
+      limit,
+      total,
+    },
+    data: result,
+  };
+};
 
-    return {
-        meta:{
-            page,
-            limit,
-            total,
-        },
-        data:result
-    }
+const singleUser = async (id: string) => {
+  const result = await User.findById(id).populate("student");
 
-}
+  return result;
+};
 
-const singleUser = async(id:string)=>{
-    const result = await User.findById(id)
+const deleteUser = async (id: string) => {
+  const result = await User.findByIdAndDelete({ _id: id }, { new: true });
+  return result;
+};
 
-    return result
-}
-
-const deleteUser = async(id:string)=>{
-    const result = await User.findByIdAndDelete({_id:id},{new:true})
-    return result
-}
-
-const updateUser = async(id:string,payload:Partial<IUser>)=>{
-    const result = await User.findByIdAndUpdate({_id:id},payload,{new:true})
-    return result
-}
-
+const updateUser = async (id: string, payload: Partial<IUser>) => {
+  const result = await User.findByIdAndUpdate({ _id: id }, payload, {
+    new: true,
+  });
+  return result;
+};
 
 export const userService = {
-    createUser,
-    getAllUsers,
-    singleUser,
-    deleteUser,
-    updateUser
-}
+  createStudent,
+  getAllUsers,
+  singleUser,
+  deleteUser,
+  updateUser,
+};

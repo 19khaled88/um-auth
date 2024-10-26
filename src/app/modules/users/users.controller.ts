@@ -9,16 +9,54 @@ import { paginationFields } from "../../../constants/pagination";
 import { User } from "./users.model";
 
 
-const createUser= catchAsnc(async(req:Request,res:Response)=>{
-  const {user} = req.body
-        const result = await userService.createUser(user);
+const createStudent= catchAsnc(async(req:Request,res:Response)=>{
+     try {
+        const {student,...data} = req.body
+        const result = await userService.createStudent(student,data);
+
         sendResponse(res,{
             statusCode:httpStatus.OK,
             success:true,
             message:'User created successfully',
             data:result
         })
-       
+        
+    } catch (error) {
+        console.error('Error in controller:', error);
+        sendResponse(res,{
+            statusCode:httpStatus.INTERNAL_SERVER_ERROR,
+            success:false,
+            message:'Failed to create user',
+            data:null
+        })
+    }
+
+
+
+
+
+
+
+    // try {
+    //     const {user,academicSemester} = req.body
+    //     const result = await userService.createUser(user,academicSemester);
+
+    //     sendResponse(res,{
+    //         statusCode:httpStatus.OK,
+    //         success:true,
+    //         message:'User created successfully',
+    //         data:result
+    //     })
+    //     const {student,...data} = req.body 
+    //     console.log(student,data)
+    // } catch (error) {
+    //     sendResponse(res,{
+    //         statusCode:httpStatus.INTERNAL_SERVER_ERROR,
+    //         success:false,
+    //         message:'Failed to create user',
+    //         data:null
+    //     })
+    // }
 })
 
 // const createUser:RequestHandler= async(req,res,next)=>{
@@ -36,10 +74,10 @@ const createUser= catchAsnc(async(req:Request,res:Response)=>{
 // }
 
 const getUsers = catchAsnc(async(req:Request,res:Response,next:NextFunction)=>{
+   try {
     const filters = pick(req.query, searchAndFilterableFields)
     const paginationOptions = pick(req.query, paginationFields)
     const result = await userService.getAllUsers(filters,paginationOptions)
-
     sendResponse(res,{
         statusCode:httpStatus.OK,
         success:true,
@@ -47,6 +85,14 @@ const getUsers = catchAsnc(async(req:Request,res:Response,next:NextFunction)=>{
         meta:result.meta,
         data:result.data
     })
+   } catch (error) {
+    sendResponse(res,{
+        statusCode:httpStatus.INTERNAL_SERVER_ERROR,
+        success:false,
+        message:'No user found!',
+        data:null
+    })
+   }
 })
 
 const singleUser = catchAsnc(async(req:Request,res:Response,next:NextFunction)=>{
@@ -83,7 +129,7 @@ const updateUser= catchAsnc(async(req:Request,res:Response,next:NextFunction)=>{
 })
 
 export const userController = {
-    createUser,
+    createStudent,
     getUsers,
     singleUser,
     deleteUser,

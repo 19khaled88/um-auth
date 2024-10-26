@@ -1,0 +1,1 @@
+export const studentsSearchableFiels:string[] =['name','gender','bloodGroup','contactNo','presentAddress']
