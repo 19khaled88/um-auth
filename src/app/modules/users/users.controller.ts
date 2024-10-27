@@ -22,7 +22,7 @@ const createStudent= catchAsnc(async(req:Request,res:Response)=>{
         })
         
     } catch (error) {
-        console.error('Error in controller:', error);
+      
         sendResponse(res,{
             statusCode:httpStatus.INTERNAL_SERVER_ERROR,
             success:false,

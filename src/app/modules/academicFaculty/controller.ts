@@ -26,6 +26,7 @@ const createAcademicFaculty= catchAsnc(async(req:Request,res:Response)=>{
 
 
 const getAcademicFaculties = catchAsnc(async(req:Request,res:Response,next:NextFunction)=>{
+   
     const filters = pick(req.query, searchAndFilterableFields)
     const paginationOptions = pick(req.query, paginationFields)
     const result = await academicFacultyService.getAllAcademicFaculties(filters,paginationOptions)
