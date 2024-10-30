@@ -11,6 +11,7 @@ const auth =
     try {
      
       let token = req.headers.authorization;
+      
       if (!token) {
         token = req.cookies.refreshtoken;
       }
@@ -27,6 +28,7 @@ const auth =
       }
 
       
+      
       // Type guard to check that verifiedToken is a JwtPayload
       if (typeof verifiedToken !== "string" && "role" in verifiedToken) {
         // Check if the user's role is authorized
@@ -36,6 +38,7 @@ const auth =
 
         // Attach user info to request and proceed
         req.user = verifiedToken;
+        
         next();
       } else {
         throw new ApiError(httpStatus.FORBIDDEN, "Invalid token format");
@@ -45,6 +48,7 @@ const auth =
     }
   };
 
+  
 export default auth;
 
 

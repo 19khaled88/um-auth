@@ -12,14 +12,11 @@ const login = catchAsnc(async(req:Request,res:Response,next:NextFunction)=>{
         const {...loginData} = req.body
         const result = await authSerivce.login(loginData)
         const {refresh, ...others} = result
-
         const cookieOptions ={
             secure:config.env === 'production',
             httpOnly:true
         }
         res.cookie('refreshtoken',refresh,cookieOptions)
-
-    
        sendResponse<LoginResponse>(res,{
         statusCode:httpStatus.OK,
         success:false,
@@ -36,9 +33,9 @@ const login = catchAsnc(async(req:Request,res:Response,next:NextFunction)=>{
     }
 })
 
+
 const refreshToken = catchAsnc(async (req:Request,res:Response,next:NextFunction)=>{
     try {
-       
         const {...data} = req.cookies
         const result = await authSerivce.refreshToken(data.refreshtoken)
         sendResponse(res,{
@@ -55,9 +52,51 @@ const refreshToken = catchAsnc(async (req:Request,res:Response,next:NextFunction
             data:null
         })
     }
+});
+
+
+// First time user login password change 
+const changePassword = catchAsnc(async(req:Request,res:Response,next:NextFunction)=>{
+    try {
+        const { ...userInfo } = await isJwtPayloadWithRole(req.user);
+        const {...passwords} = req.body;
+        const ifPasswrdChange = await authSerivce.changePassword(passwords,userInfo)
+
+        // const result = await authSerivce.login({...passwords,userInfo})
+        sendResponse(res,{
+            statusCode:httpStatus.OK,
+            success:true,
+            message:'Password changed successfully',
+            data:ifPasswrdChange
+        })
+    } catch (error) {
+        console.log(error)
+        sendResponse(res,{
+            statusCode:httpStatus.NOT_FOUND,
+            success:true,
+            message:'Password not changed!',
+            data:null
+        })
+    }
 })
+
+// function isJwtPayloadWidthRole(user:any):user is {userId:string;role:string}{
+//     return user && typeof user.userId === 'string' && typeof user.role === 'string'
+// }
+
+
+async function isJwtPayloadWithRole(user: any): Promise<{ userId: string; role: string }> {
+    return new Promise((resolve, reject) => {
+        if (user && typeof user.id === 'string' && typeof user.role === 'string') {
+            resolve({ userId: user.id, role: user.role });
+        } else {
+            reject(new Error('Invalid user payload'));
+        }
+    });
+}
 
 export const authController ={
     login,
-    refreshToken
+    refreshToken,
+    changePassword
 }

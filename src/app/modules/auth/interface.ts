@@ -14,3 +14,8 @@ export type LoginResponse = {
     refresh?:string,
     isNeededPassChange:boolean
 }
+
+export type IChngePassword = {
+    oldPassword:string,
+    newPassword:string
+  }

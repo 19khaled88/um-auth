@@ -1,10 +1,11 @@
 import httpStatus from "http-status";
 import ApiError from "../../../errors/ApiError";
 import { User } from "../users/users.model";
-import { IAuth, LoginResponse } from "./interface";
+import { IAuth, IChngePassword, LoginResponse } from "./interface";
 import jwt, { JwtPayload, Secret } from "jsonwebtoken";
 import config from "../../../config";
 import { jwtHelpers } from "../../../helper/jwtHelper";
+import byct from 'bcrypt'
 
 const login = async (payload: IAuth):Promise<LoginResponse> => {
   const { id, password } = payload;
@@ -87,8 +88,37 @@ const refreshToken = async(token:string)=>{
 }
 
 
+const changePassword = async(passwords:IChngePassword,payload:JwtPayload):Promise<void>=>{
+  const {oldPassword,newPassword} = passwords
+
+  
+  
+  const user = new User();
+  const isUserExist = await user.isUserExist(payload?.userId)
+  
+  if(!isUserExist){
+    throw new ApiError(httpStatus.NOT_FOUND,'User does not exist')
+  }
+
+
+  if(isUserExist.password && !(await user.isPasswordMatch(oldPassword,isUserExist.password))){
+    throw new ApiError(httpStatus.UNAUTHORIZED, 'Old password is incorrect')
+  }
+
+  const newHassPass = await byct.hash(newPassword, Number(config.bcyrpt_salt_rounds))
+
+  const changeData ={ 
+    password:newHassPass,
+    needsPassChange:false,
+    passwordChangedAt:new Date()
+  }
+
+  await User.findOneAndUpdate({id:payload?.userId},changeData)
+
+}
 
 export const authSerivce = {
   login,
-  refreshToken
+  refreshToken,
+  changePassword
 };
