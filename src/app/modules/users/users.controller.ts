@@ -7,6 +7,7 @@ import pick from "../../../shared/pick";
 import { searchAndFilterableFields } from "./users.constats";
 import { paginationFields } from "../../../constants/pagination";
 import { User } from "./users.model";
+import { IUser } from "./users.interface";
 
 
 const createStudent= catchAsnc(async(req:Request,res:Response)=>{
@@ -14,7 +15,7 @@ const createStudent= catchAsnc(async(req:Request,res:Response)=>{
         const {student,...data} = req.body
         const result = await userService.createStudent(student,data);
 
-        sendResponse(res,{
+        sendResponse<IUser>(res,{
             statusCode:httpStatus.OK,
             success:true,
             message:'User created successfully',
@@ -57,6 +58,30 @@ const createStudent= catchAsnc(async(req:Request,res:Response)=>{
     //         data:null
     //     })
     // }
+})
+
+const createFaculty:RequestHandler = catchAsnc(async(req:Request,res:Response)=>{
+    const {faculty, ...usreData} = req.body;
+    const result = await userService.createFaculty(faculty,usreData);
+
+    sendResponse<IUser>(res,{
+        statusCode:httpStatus.OK,
+        success:true,
+        message:'Faculty created successfully',
+        data:result
+    })
+})
+
+const createAdmin = catchAsnc(async(req:Request,res:Response)=>{
+    const {admin,...userData} = req.body
+    const result = await userService.createAdmin(admin,userData);
+
+    sendResponse<IUser>(res,{
+        statusCode:httpStatus.OK,
+        success:true,
+        message:'Admin created successfully',
+        data:result
+    })
 })
 
 // const createUser:RequestHandler= async(req,res,next)=>{
@@ -128,8 +153,12 @@ const updateUser= catchAsnc(async(req:Request,res:Response,next:NextFunction)=>{
     })
 })
 
+
+
 export const userController = {
     createStudent,
+    createFaculty,
+    createAdmin,
     getUsers,
     singleUser,
     deleteUser,

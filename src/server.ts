@@ -17,7 +17,7 @@ async function dbConn(){
     
     try {
         await mongoose.connect(config.db_url as string)
-        successLogger.info('Database connected successfully')
+        successLogger.info('Mongodb database connected successfully')
 
        server = app.listen(config.port,()=>{
             successLogger.info(`connection established on ${config.port}`)

@@ -70,7 +70,6 @@ const changePassword = catchAsnc(async(req:Request,res:Response,next:NextFunctio
             data:ifPasswrdChange
         })
     } catch (error) {
-        console.log(error)
         sendResponse(res,{
             statusCode:httpStatus.NOT_FOUND,
             success:true,

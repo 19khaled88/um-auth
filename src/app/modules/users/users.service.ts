@@ -27,6 +27,10 @@ import { Student } from "../student/model";
 import ApiError from "../../../errors/ApiError";
 import httpStatus from "http-status";
 import byt from "bcrypt";
+import { IFaculty } from "../faculty/interface";
+import { Faculty } from "../faculty/model";
+import { Admin } from "../admin/model";
+import { IAdmin } from "../admin/interface";
 
 const createStudent = async (
   student: IStudent,
@@ -243,10 +247,120 @@ const updateUser = async (id: string, payload: Partial<IUser>) => {
   return result;
 };
 
+
+const createFaculty = async(
+  faculty:IFaculty,
+  user:IUser
+):Promise<IUser | null>=>{
+  if (!user.password) {
+    user.password = config.default_st_pass as string;
+  }
+
+  user.role = 'faculty';
+
+  let newUserData = null;
+
+  try {
+    const id = await generateFacultyId();
+
+    user.id = id;
+    faculty.id = id;
+
+    const newFaculty = await Faculty.create(faculty);
+
+    if(!newFaculty){
+      throw new ApiError(httpStatus.BAD_REQUEST,'Failed to create faculty')
+    }
+
+    user.faculty = newFaculty._id
+
+    const newUser = await User.create(user)
+    if(!newUser){
+      throw new ApiError(httpStatus.BAD_REQUEST,'Failed to create faculty')
+    }
+
+    newUserData = newUser
+
+  } catch (error) {
+    throw error;
+  }
+
+  if(newUserData){
+    newUserData = await User.findOne({id:newUserData.id}).populate({
+      path:'faculty',
+      populate:[
+        {
+          path:'academicDepartment', 
+        },{
+          path:'academicFaculty',
+        }
+      ]
+    })
+  }
+
+  return newUserData;
+
+}
+
+const createAdmin = async(
+  admin:IAdmin,
+  user:IUser
+):Promise<IUser | null>=>{
+    if(!user.password){
+      user.password = config.default_st_pass as string;
+    } 
+
+    user.role = 'admin';
+
+    let newUserAllData = null; 
+
+    try {
+      const id = await generateAdminId();
+      user.id = id;
+      admin.id = id;
+
+      const newAdmin = await Admin.create(admin);
+
+      if(!newAdmin){
+        throw new ApiError(httpStatus.BAD_REQUEST,'Failed to create admin') 
+      }
+
+      user.admin = newAdmin._id;
+
+      const newUser = await User.create(user);
+
+      if(!newUser){
+        throw new ApiError(httpStatus.BAD_REQUEST,'Failed to create user')
+      }
+
+      newUserAllData = newUser;
+
+
+    } catch (error) {
+      throw error 
+    }
+
+    if(newUserAllData){
+      newUserAllData = await User.findOne({id:newUserAllData.id}).populate({
+        path:'admin',
+        populate:[
+          {
+            path:'managementDepartment',
+          }
+        ]
+      })
+    }
+
+    return newUserAllData
+}
+
 export const userService = {
   createStudent,
   getAllUsers,
   singleUser,
   deleteUser,
-  updateUser,
+  updateUser, 
+
+  createAdmin,
+  createFaculty
 };
