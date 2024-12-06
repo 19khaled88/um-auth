@@ -360,7 +360,6 @@ export const userService = {
   singleUser,
   deleteUser,
   updateUser, 
-
   createAdmin,
   createFaculty
 };
