@@ -4,7 +4,7 @@ import { SortOrder } from "mongoose"
 import config from "../../../config"
 import { paginationHelper } from "../../../helper/paginationHelper"
 import { IGenericResponse, IPagniationOptions } from "../../../shared/interfaces"
-import { IAcademicFaculty, IAcademicFacultyFilters } from "./interface"
+import { IAcademicFaculty, IAcademicFacultyFilters, IAcademicFacultyFromEvents } from "./interface"
 import { AcademicFaculty } from "./model"
 import { academicFacultySearchableFiels } from "../../../constants/academicFaculty"
 
@@ -84,11 +84,32 @@ const updateAcademicFaculty = async(id:string,payload:Partial<IAcademicFaculty>)
     return result
 }
 
+const createFacultyFromEvents = async (
+  e:IAcademicFacultyFromEvents
+): Promise<void> => {
+  await AcademicFaculty.create({
+    title: e.title,
+    syncId: e.id,
+  });
+};
+
+const updateFacultyFromEvents = async (e:IAcademicFacultyFromEvents): Promise<void> => {
+  await AcademicFaculty.findOneAndUpdate({ syncId: e.id },{
+    $set:{
+        title: e.title
+    }
+  }
+    
+  );
+};
+
 
 export const academicFacultyService = {
     createAcademicFaculty,
     getAllAcademicFaculties,
     singleAcademicFaculty,
     deleteAcademicFaculty,
-    updateAcademicFaculty
+    updateAcademicFaculty,
+    createFacultyFromEvents,
+    updateFacultyFromEvents
 }

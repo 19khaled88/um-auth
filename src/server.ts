@@ -4,6 +4,7 @@ import config from "./config";
 import {successLogger,errorLogger} from "./shared/logger/logger";
 import {Server} from 'http'
 import { RedisClient } from "./shared/redis";
+import subscribeToEvents from "./app/events";
 
 
 
@@ -17,7 +18,9 @@ let server:Server;
 async function dbConn(){
     
     try {
-        await RedisClient.connect();
+        await RedisClient.connect().then(()=>{
+            subscribeToEvents();
+        });
         await mongoose.connect(config.db_url as string)
         successLogger.info('Mongodb database connected successfully')
 

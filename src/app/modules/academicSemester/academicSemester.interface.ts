@@ -10,6 +10,16 @@ export type IAcademicSemester ={
     code:IAcademicSemesterCode;
     startMonth:Month;
     endMonth:Month;
+    syncId:string
+}
+
+export type IAcademicSemesterFromEvent ={
+    title :string;
+    year:string;
+    code:string;
+    startMonth:string;
+    endMonth:string;
+    id:string
 }
 
 export type AcademicSemesterModel = Model<IAcademicSemester> 

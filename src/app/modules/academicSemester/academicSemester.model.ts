@@ -35,6 +35,10 @@ const academicSemesterSchema = new Schema<IAcademicSemester>(
       required: true,
       enum: month,
     },
+    syncId:{
+      type:String,
+      require:true
+    }
   },
   {
     timestamps: true,
