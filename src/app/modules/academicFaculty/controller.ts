@@ -13,14 +13,13 @@ import { searchAndFilterableFields } from "../../../constants/academicFaculty";
 
 const createAcademicFaculty= catchAsnc(async(req:Request,res:Response)=>{
   const {...academicFaculty} = req.body
-        const result = await academicFacultyService.createAcademicFaculty(academicFaculty);
-        sendResponse(res,{
-            statusCode:httpStatus.OK,
-            success:true,
-            message:'Academic Faculty created successfully',
-            data:result
-        })
-       
+    const result = await academicFacultyService.createAcademicFaculty(academicFaculty);
+    sendResponse(res,{
+        statusCode:httpStatus.OK,
+        success:true,
+        message:'Academic Faculty created successfully',
+        data:result
+    }) 
 })
 
 

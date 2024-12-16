@@ -15,6 +15,10 @@ const academicDepartment = new Schema<IAcademicDepartment>(
         type:Schema.Types.ObjectId,
         ref:'AcademicFaculty',
         required:true,
+    },
+    syncId:{
+      type:String,
+      require:true
     }
    
 },

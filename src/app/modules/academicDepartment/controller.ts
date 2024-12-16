@@ -22,8 +22,6 @@ const createAcademicDepartment= catchAsnc(async(req:Request,res:Response)=>{
        
 })
 
-
-
 const getAcademicDepartments = catchAsnc(async(req:Request,res:Response,next:NextFunction)=>{
     const filters = pick(req.query, searchAndFilterableFields)
     const paginationOptions = pick(req.query, paginationFields)

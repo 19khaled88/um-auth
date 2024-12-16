@@ -1,5 +1,5 @@
 import { RedisClient } from "../../../shared/redis"
-import { EVENT_ACADEMIC_FACULTY_CREATED, EVENT_ACADEMIC_FACULTY_UPDATED } from "./constant";
+import { EVENT_ACADEMIC_FACULTY_CREATED, EVENT_ACADEMIC_FACULTY_DELETED, EVENT_ACADEMIC_FACULTY_UPDATED } from "./constant";
 import { IAcademicFacultyFromEvents } from "./interface";
 import { academicFacultyService } from "./services";
 
@@ -13,6 +13,11 @@ const academicFacultyEvent = () =>{
     RedisClient.subscribe(EVENT_ACADEMIC_FACULTY_UPDATED,async(e:string)=>{
         const data = JSON.parse(e);
         await academicFacultyService.updateFacultyFromEvents(data)
+    });
+
+    RedisClient.subscribe(EVENT_ACADEMIC_FACULTY_DELETED,async(e:string)=>{
+        const data = JSON.parse(e);
+        await academicFacultyService.deleteFacultyFromEvents(data)
     })
 }
 
