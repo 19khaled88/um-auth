@@ -14,7 +14,7 @@ router.post(
 );
 
 router.get("/:id", managementController.getSingleDepartment);
-router.patch(
+router.put(
   "/:id",
   validationRequest(
     managementDepartmentValidation.updateManagementDepartmentZodSchema

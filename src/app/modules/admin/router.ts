@@ -6,8 +6,9 @@ import { AdminZodValidation } from "./validation";
 const router = express.Router();
 
 router.get("/:id", adminController.getSingleAdmin);
+router.get("/", adminController.getAllAdmins);
 router.delete("/:id", adminController.deleteAdmin);
-router.patch(
+router.put(
   "/:id",
   validationRequest(AdminZodValidation.updateAdminZodSchema),
   adminController.updateAdmin

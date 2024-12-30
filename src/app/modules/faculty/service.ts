@@ -64,7 +64,12 @@ const getAllFaculties = async(
 }
 
 const getSingleFaculty = async(id:string):Promise<IFaculty | null>=>{
-    const result = await Faculty.findOne({id})
+    const ifExist = await Faculty.findById(id);
+
+    if(!ifExist){
+        throw new ApiError(httpStatus.CONFLICT,'Faculty not found')
+    }
+    const result = await Faculty.findOne({_id:id})
         .populate('academicDepartment')
         .populate('academicFaculty')
 
@@ -72,7 +77,7 @@ const getSingleFaculty = async(id:string):Promise<IFaculty | null>=>{
 }
 
 const updateFaculty = async(id:string,payload:Partial<IFaculty>):Promise<IFaculty | null>=>{
-    const isExist = await Faculty.findOne({id});
+    const isExist = await Faculty.findOne({_id:id});
 
     if(!isExist){
         throw new ApiError(httpStatus.NOT_FOUND,'Faculty not found');
@@ -88,7 +93,7 @@ const updateFaculty = async(id:string,payload:Partial<IFaculty>):Promise<IFacult
         })
     }
 
-    const result = await Faculty.findOneAndUpdate({id}, updatedFacultyData,{
+    const result = await Faculty.findOneAndUpdate({_id:id}, updatedFacultyData,{
         new:true
     });
 
@@ -96,14 +101,14 @@ const updateFaculty = async(id:string,payload:Partial<IFaculty>):Promise<IFacult
 }
 
 const deleteFaculty = async(id:string):Promise<IFaculty | null>=>{
-    const isExist = await Faculty.findOne({id});
+    const isExist = await Faculty.findOne({_id:id});
 
     if(!isExist){
         throw new ApiError(httpStatus.NOT_FOUND, 'Faculty not found')
     }
 
     try {
-        const faculty = await Faculty.findOneAndDelete({id});
+        const faculty = await Faculty.findOneAndDelete({_id:id});
     if(!faculty){
         throw new ApiError(404,'Failed to delete faculty')
     }

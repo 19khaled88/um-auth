@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.get('/:id',FacultyController.getSingleFaculty);
 router.get('/',FacultyController.getAllFaculties);
-router.patch('/:id',validationRequest(FacultyZodValidation.updateFacultyZodSchema),FacultyController.updateFaculty);
+router.put('/:id',validationRequest(FacultyZodValidation.updateFacultyZodSchema),FacultyController.updateFaculty);
 router.delete('/:id',FacultyController.deleteFaculty);
 
 
