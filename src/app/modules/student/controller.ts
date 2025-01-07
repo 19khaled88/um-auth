@@ -62,12 +62,7 @@ const deleteStudent = catchAsnc(async(req:Request,res:Response,next:NextFunction
             data:result
         })
     } catch (error) {
-        sendResponse(res,{
-            statusCode:httpStatus.INTERNAL_SERVER_ERROR,
-            success:false,
-            message:'Student deletion unsuccessful!',
-            data:null
-        })
+       next(error)
     }
    
 })

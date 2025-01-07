@@ -22,12 +22,14 @@ const auth =
 
       let verifiedToken = null;
       try {
-        verifiedToken = jwt.verify(token, config.jwt.refresh_token as Secret);
-      } catch (error) {
-        throw new ApiError(httpStatus.FORBIDDEN, "Invalid token");
-      }
 
-      
+        verifiedToken = jwt.verify(token, config.jwt.token as Secret);
+        
+      } catch (error) {
+
+        throw new ApiError(httpStatus.FORBIDDEN, "Invalid token");
+
+      }
       
       // Type guard to check that verifiedToken is a JwtPayload
       if (typeof verifiedToken !== "string" && "role" in verifiedToken) {

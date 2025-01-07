@@ -8,6 +8,7 @@ import { LoginResponse } from "./interface"
 
 
 const login = catchAsnc(async(req:Request,res:Response,next:NextFunction)=>{
+   
     try {
         const {...loginData} = req.body
         const result = await authSerivce.login(loginData)
@@ -19,17 +20,18 @@ const login = catchAsnc(async(req:Request,res:Response,next:NextFunction)=>{
         res.cookie('refreshtoken',refresh,cookieOptions)
        sendResponse<LoginResponse>(res,{
         statusCode:httpStatus.OK,
-        success:false,
+        success:true,
         message:'Login successful',
-        data:others
+        data:result
     })
     } catch (error) {
-        sendResponse(res,{
-            statusCode:httpStatus.INTERNAL_SERVER_ERROR,
-            success:false,
-            message:'Login failed',
-            data:null
-        })
+        // sendResponse(res,{
+        //     statusCode:httpStatus.INTERNAL_SERVER_ERROR,
+        //     success:false,
+        //     message:'Login failed',
+        //     data:null
+        // })
+        next(error)
     }
 })
 

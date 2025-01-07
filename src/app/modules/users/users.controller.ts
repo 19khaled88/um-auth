@@ -9,7 +9,7 @@ import { paginationFields } from "../../../constants/pagination";
 import { User } from "./users.model";
 import { IUser } from "./users.interface";
 
-const createStudent = catchAsnc(async (req: Request, res: Response) => {
+const createStudent = catchAsnc(async (req: Request, res: Response,next:NextFunction) => {
   try {
     const { student, ...data } = req.body;
     const result = await userService.createStudent(student, data);
@@ -21,12 +21,13 @@ const createStudent = catchAsnc(async (req: Request, res: Response) => {
       data: result,
     });
   } catch (error) {
-    sendResponse(res, {
-      statusCode: httpStatus.INTERNAL_SERVER_ERROR,
-      success: false,
-      message: "Failed to create user",
-      data: null,
-    });
+    // sendResponse(res, {
+    //   statusCode: httpStatus.INTERNAL_SERVER_ERROR,
+    //   success: false,
+    //   message: "Failed to create user",
+    //   data: null,
+    // });
+    next(error)
   }
 
   // try {

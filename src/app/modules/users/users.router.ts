@@ -30,7 +30,7 @@ router.post(
 router.post(
   "/create-admin",
   validationRequest(AdminZodValidation.createAdminZodSchema),
-  // auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
+  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   userController.createAdmin
 );
 

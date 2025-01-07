@@ -31,6 +31,8 @@ import { IFaculty } from "../faculty/interface";
 import { Faculty } from "../faculty/model";
 import { Admin } from "../admin/model";
 import { IAdmin } from "../admin/interface";
+import { RedisClient } from "../../../shared/redis";
+import { EVENT_STUDENT_CREATED } from "./users.constats";
 
 const createStudent = async (
   student: IStudent,
@@ -128,6 +130,9 @@ const createStudent = async (
     });
   }
 
+  if(newUserData){
+    await RedisClient.publish(EVENT_STUDENT_CREATED, JSON.stringify(newUserData.student))
+  }
   return newUserData;
 };
 
@@ -246,7 +251,6 @@ const updateUser = async (id: string, payload: Partial<IUser>) => {
   });
   return result;
 };
-
 
 const createFaculty = async(
   faculty:IFaculty,

@@ -103,20 +103,30 @@ const updateAdmin = async (id: string, payload: Partial<IAdmin>) => {
 };
 
 const deleteAdmin = async (id: string): Promise<IAdmin | null> => {
-  const isExist = await Admin.findById(id);
+  const isExist = await Admin.findOne({_id:id});
 
   if (!isExist) {
     throw new ApiError(httpStatus.NOT_FOUND, "This admin/faculty not found");
   }
 
   try {
-    const admin = await Admin.findOneAndDelete({_id:id });
-    if (!admin) {
+     // Backup the faculty document before deletion
+     const backupAdmin = isExist.toObject();
+
+    const deletedadmin = await Admin.findOneAndDelete({_id:id });
+    if (!deletedadmin) {
       throw new ApiError(404, "Failed to delete student");
     }
 
-    await User.deleteOne({ id });
-    return admin;
+   const deletedUser = await User.deleteOne({ id:deletedadmin.id });
+   if(deletedUser.deletedCount === 0){
+     await Admin.create(backupAdmin);
+     throw new ApiError(
+      httpStatus.INTERNAL_SERVER_ERROR,
+              "Failed to delete associated user, Admin delete rolled back"
+     )
+   }
+    return deletedadmin;
   } catch (error) {
     throw error;
   }

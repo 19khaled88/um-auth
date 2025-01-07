@@ -84,22 +84,35 @@ const getSingleStudent = async (id: string) => {
 };
 
 const deleteStudent = async (id: string) => {
-  const isDeleteStudent = await Student.findByIdAndDelete(
-    { id: id },
-    { new: true }
-  );
-
-  if (!isDeleteStudent) {
+  const isExist = await Student.findOne({ _id: id });
+  
+  if (!isExist) {
     throw new ApiError(httpStatus.NOT_FOUND, "This student not found");
   }
 
-  const isDeleteUser = await User.findByIdAndDelete({ id: id }, { new: true });
+  try {
+    // Backup the faculty document before deletion
+    const backupStudent = isExist.toObject();
 
-  if(!isDeleteStudent){
-    throw new ApiError(httpStatus.NOT_FOUND, "This user not found");
+    const deletedStudent = await Student.findOneAndDelete(
+      { _id: id },
+      { new: true }
+    );
+    
+    if (!deletedStudent) {
+      throw new ApiError(httpStatus.NOT_FOUND, "This student not found");
+    }
+
+    const isDeletedUser = await User.deleteOne({ id: deletedStudent.id }, { new: true });
+   
+    if (isDeletedUser.deletedCount === 0) {
+      await Student.create(backupStudent);
+      throw new ApiError(httpStatus.NOT_FOUND, "Failed to delete associated user, Student delete rolled back");
+    }
+    return deletedStudent;
+  } catch (error) {
+    throw error;
   }
-  return isDeleteStudent;
-
 };
 
 const updateStudent = async (id: string, payload: Partial<IStudent>) => {

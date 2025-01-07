@@ -9,7 +9,7 @@ import byct from 'bcrypt'
 
 const login = async (payload: IAuth):Promise<LoginResponse> => {
   const { id, password } = payload;
-
+  
   const user = new User();
 
   //check user exist
@@ -79,11 +79,19 @@ const refreshToken = async(token:string)=>{
     //generate new token
     const newAccessToken = jwtHelpers.creatToken(
         {id:isUserExist.id,role:isUserExist.role},
-        config.jwt.token as Secret, config.jwt.token_expire as string
+        config.jwt.token as Secret, 
+        config.jwt.token_expire as string
     )
 
+    const refreshToken = jwtHelpers.creatToken(
+      { id: isUserExist.id, role: isUserExist.role },
+      config.jwt.refresh_token as Secret,
+      config.jwt.refresh_token_expire as string
+    );
+
     return {
-        token:newAccessToken
+        token:newAccessToken,
+        refresh:refreshToken
     }
 }
 
@@ -91,8 +99,6 @@ const refreshToken = async(token:string)=>{
 const changePassword = async(passwords:IChngePassword,payload:JwtPayload):Promise<void>=>{
   const {oldPassword,newPassword} = passwords
 
-  
-  
   const user = new User();
   const isUserExist = await user.isUserExist(payload?.userId)
   
