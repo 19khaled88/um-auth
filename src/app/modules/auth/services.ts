@@ -108,7 +108,7 @@ const changePassword = async(passwords:IChngePassword,payload:JwtPayload):Promis
 
 
   if(isUserExist.password && !(await user.isPasswordMatch(oldPassword,isUserExist.password))){
-    throw new ApiError(httpStatus.UNAUTHORIZED, 'Old password is incorrect')
+    throw new ApiError(httpStatus.UNAUTHORIZED, 'Password not match')
   }
 
   const newHassPass = await byct.hash(newPassword, Number(config.bcyrpt_salt_rounds))
@@ -119,8 +119,9 @@ const changePassword = async(passwords:IChngePassword,payload:JwtPayload):Promis
     passwordChangedAt:new Date()
   }
 
-  await User.findOneAndUpdate({id:payload?.userId},changeData)
+ const passwordUpdated =  await User.findOneAndUpdate({id:payload?.userId},changeData)
 
+ 
 }
 
 export const authSerivce = {

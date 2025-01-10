@@ -4,12 +4,13 @@ import {
   IGenericResponse,
   IPagniationOptions,
 } from "../../../shared/interfaces";
-import { facultySearchableFields } from "./constants";
+import { EVENT_FACULTY_UPDATED, facultySearchableFields } from "./constants";
 import { IFaculty, IFacultyFilters } from "./interface";
 import { Faculty } from "./model";
 import ApiError from "../../../errors/ApiError";
 import httpStatus from "http-status";
 import { User } from "../users/users.model";
+import { RedisClient } from "../../../shared/redis";
 
 const getAllFaculties = async (
   filters: IFacultyFilters,
@@ -105,7 +106,12 @@ const updateFaculty = async (
     {
       new: true,
     }
-  );
+  ).populate('academicDepartment')
+   .populate('academicFaculty');
+
+  if(result){
+    await RedisClient.publish(EVENT_FACULTY_UPDATED,JSON.stringify(result))
+  }
 
   return result;
 };

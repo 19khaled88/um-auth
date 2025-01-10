@@ -55,6 +55,7 @@ const updateFaculty = catchAsnc(
     try {
       const id = req.params.id;
       const updatedData = req.body;
+      
       const result = await facultySerivce.updateFaculty(id, updatedData);
 
       sendResponse<IFaculty>(res, {

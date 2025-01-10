@@ -19,11 +19,11 @@ const login = catchAsnc(async(req:Request,res:Response,next:NextFunction)=>{
         }
         res.cookie('refreshtoken',refresh,cookieOptions)
        sendResponse<LoginResponse>(res,{
-        statusCode:httpStatus.OK,
-        success:true,
-        message:'Login successful',
-        data:result
-    })
+            statusCode:httpStatus.OK,
+            success:true,
+            message:'Login successful',
+            data:result
+        })
     } catch (error) {
         // sendResponse(res,{
         //     statusCode:httpStatus.INTERNAL_SERVER_ERROR,
@@ -42,17 +42,18 @@ const refreshToken = catchAsnc(async (req:Request,res:Response,next:NextFunction
         const result = await authSerivce.refreshToken(data.refreshtoken)
         sendResponse(res,{
             statusCode:httpStatus.OK,
-            success:false,
+            success:true,
             message:'refresh token created',
             data:result
         })
     } catch (error) {
-        sendResponse(res,{
-            statusCode:httpStatus.INTERNAL_SERVER_ERROR,
-            success:false,
-            message:'token not found',
-            data:null
-        })
+        // sendResponse(res,{
+        //     statusCode:httpStatus.INTERNAL_SERVER_ERROR,
+        //     success:false,
+        //     message:'token not found',
+        //     data:null
+        // })
+        next(error)
     }
 });
 
@@ -62,22 +63,24 @@ const changePassword = catchAsnc(async(req:Request,res:Response,next:NextFunctio
     try {
         const { ...userInfo } = await isJwtPayloadWithRole(req.user);
         const {...passwords} = req.body;
-        const ifPasswrdChange = await authSerivce.changePassword(passwords,userInfo)
+        const ifPasswordChange = await authSerivce.changePassword(passwords,userInfo)
+        console.log(ifPasswordChange,userInfo,passwords)
 
         // const result = await authSerivce.login({...passwords,userInfo})
         sendResponse(res,{
             statusCode:httpStatus.OK,
             success:true,
             message:'Password changed successfully',
-            data:ifPasswrdChange
+            data:ifPasswordChange
         })
     } catch (error) {
-        sendResponse(res,{
-            statusCode:httpStatus.NOT_FOUND,
-            success:true,
-            message:'Password not changed!',
-            data:null
-        })
+        // sendResponse(res,{
+        //     statusCode:httpStatus.NOT_FOUND,
+        //     success:false,
+        //     message:'Password not changed!',
+        //     data:null
+        // })
+        next(error)
     }
 })
 
