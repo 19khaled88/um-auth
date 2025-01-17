@@ -32,7 +32,7 @@ import { Faculty } from "../faculty/model";
 import { Admin } from "../admin/model";
 import { IAdmin } from "../admin/interface";
 import { RedisClient } from "../../../shared/redis";
-import { EVENT_STUDENT_CREATED } from "./users.constats";
+import { EVENT_FACULTY_CREATED, EVENT_STUDENT_CREATED } from "./users.constats";
 
 const createStudent = async (
   student: IStudent,
@@ -302,6 +302,9 @@ const createFaculty = async(
     })
   }
 
+  if(newUserData){
+    await RedisClient.publish(EVENT_FACULTY_CREATED,JSON.stringify(newUserData))
+  }
   return newUserData;
 
 }

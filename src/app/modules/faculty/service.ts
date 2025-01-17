@@ -4,7 +4,7 @@ import {
   IGenericResponse,
   IPagniationOptions,
 } from "../../../shared/interfaces";
-import { EVENT_FACULTY_UPDATED, facultySearchableFields } from "./constants";
+import { EVENT_FACULTY_DELETED, EVENT_FACULTY_UPDATED, facultySearchableFields } from "./constants";
 import { IFaculty, IFacultyFilters } from "./interface";
 import { Faculty } from "./model";
 import ApiError from "../../../errors/ApiError";
@@ -122,8 +122,7 @@ const deleteFaculty = async (id: string): Promise<IFaculty | null> => {
   if (!isExist) {
     throw new ApiError(httpStatus.NOT_FOUND, "Faculty not found");
   }
-
-
+  
   try {
     // Backup the faculty document before deletion
     const backupFaculty = isExist.toObject();
@@ -141,6 +140,10 @@ const deleteFaculty = async (id: string): Promise<IFaculty | null> => {
         httpStatus.INTERNAL_SERVER_ERROR,
         "Failed to delete associated user, Faculty delete rolled back"
       );
+    }
+
+    if(userDeleted.deletedCount === 1){
+      await RedisClient.publish(EVENT_FACULTY_DELETED,JSON.stringify(backupFaculty))
     }
 
     return deletedFaculty;
