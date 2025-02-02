@@ -10,6 +10,10 @@ import { Student } from "./model";
 import ApiError from "../../../errors/ApiError";
 import httpStatus from "http-status";
 import { User } from "../users/users.model";
+import { RedisClient } from "../../../shared/redis";
+import { EVENT_STUDENT_DELETED, EVENT_STUDENT_UPDATED } from "./constans";
+import { FileUploadCloudinary } from "../../../helper/cloudinary";
+
 
 const getAllStudents = async (
   filters: IStudentFilters,
@@ -83,6 +87,76 @@ const getSingleStudent = async (id: string) => {
   return result;
 };
 
+const updateStudent = async (id: string, payload: Partial<IStudent>):Promise<IStudent> => {
+  const isExist = await Student.findOne({ _id: id });
+  if (!isExist) {
+    throw new ApiError(httpStatus.NOT_FOUND, "Student data not found");
+  }
+
+  let updateObject: any = {};
+  
+  for (const key in payload) {
+    const value = payload[key as keyof IStudent];
+    if (typeof value === "object" && value !== null) {
+      for(const nestedKey in value){
+        const newValue = value[nestedKey as keyof typeof value]
+        for(let newVal in newValue as any){
+
+          updateObject = {
+            ...updateObject,
+            [`${nestedKey}.${newVal}`] : newValue[newVal]
+
+          }
+        }
+      }
+      
+    } else {
+      updateObject = {
+        ...updateObject,
+        [key]:value
+      }
+     
+    }
+  }
+
+  
+  const result = await Student.findByIdAndUpdate(
+    { _id: id },
+    { $set: updateObject },
+    { new: true,runValidators:true }
+  ).populate([
+    { path: "academicFaculty" },
+    { path: "academicDepartment" },
+    { path: "academicSemester" },
+  ]);
+
+
+  if (!result) {
+    throw new ApiError(httpStatus.NOT_FOUND, "Failed to update student data");
+  }else{
+    await RedisClient.publish(EVENT_STUDENT_UPDATED,JSON.stringify(result))
+  }
+
+
+  
+  return result;
+};
+
+const checkIfStudentDuplicate = async(data:any)=>{
+  try {
+    const result = await Student.findOne({
+        $or:[
+          {email: data.email}, 
+          {contactNo: data.contactNo}, 
+        ],
+    });
+    return result;
+  } catch (error) {
+      throw error;
+  }
+  
+}
+
 const deleteStudent = async (id: string) => {
   const isExist = await Student.findOne({ _id: id });
   
@@ -94,6 +168,7 @@ const deleteStudent = async (id: string) => {
     // Backup the faculty document before deletion
     const backupStudent = isExist.toObject();
 
+    // delete from student table
     const deletedStudent = await Student.findOneAndDelete(
       { _id: id },
       { new: true }
@@ -103,51 +178,24 @@ const deleteStudent = async (id: string) => {
       throw new ApiError(httpStatus.NOT_FOUND, "This student not found");
     }
 
+    // delete from user table
     const isDeletedUser = await User.deleteOne({ id: deletedStudent.id }, { new: true });
    
     if (isDeletedUser.deletedCount === 0) {
       await Student.create(backupStudent);
       throw new ApiError(httpStatus.NOT_FOUND, "Failed to delete associated user, Student delete rolled back");
+    }else{
+      if(deletedStudent.profileImage){
+        await FileUploadCloudinary.deleteFromCloudinary(deletedStudent.profileImage,'single')
+      }
+      await RedisClient.publish(EVENT_STUDENT_DELETED,JSON.stringify(deletedStudent))
     }
+
+
     return deletedStudent;
   } catch (error) {
     throw error;
   }
-};
-
-const updateStudent = async (id: string, payload: Partial<IStudent>) => {
-  const isExist = await Student.findOne({ _id: id });
-  if (!isExist) {
-    throw new ApiError(httpStatus.NOT_FOUND, "Student data not found");
-  }
-
-  const updateObject: any = {};
-
-  for (let key in payload) {
-    const value = payload[key as keyof IStudent];
-
-    if (typeof value === "object" && value !== null) {
-      // For nested objects like name or guardian, iterate over the inner fields
-      for (let nestedKey in value) {
-        updateObject[`${key}.${nestedKey}`] =
-          value[nestedKey as keyof typeof value];
-      }
-    } else {
-      // For simple fields, just add them to the updateObject
-      updateObject[key] = value;
-    }
-  }
-
-  const result = await Student.findByIdAndUpdate(
-    { _id: id },
-    { $set: updateObject },
-    { new: true }
-  );
-
-  if (!result) {
-    throw new ApiError(httpStatus.NOT_FOUND, "Failed to update student data");
-  }
-  return result;
 };
 
 export const studentServices = {
@@ -155,4 +203,5 @@ export const studentServices = {
   getSingleStudent,
   deleteStudent,
   updateStudent,
+  checkIfStudentDuplicate
 };

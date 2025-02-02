@@ -55,7 +55,6 @@ const updateFaculty = catchAsnc(
     try {
       const id = req.params.id;
       const updatedData = req.body;
-      
       const result = await facultySerivce.updateFaculty(id, updatedData);
 
       sendResponse<IFaculty>(res, {
@@ -88,9 +87,28 @@ const deleteFaculty = catchAsnc(
   }
 );
 
+const checkIfFacultyDuplicate = catchAsnc(async(req:Request,res:Response,next:NextFunction)=>{
+   
+  try {
+      const result = await facultySerivce.checkIfFacultyDuplicaate(req.query)
+
+      sendResponse(res,{
+          statusCode:httpStatus.OK,
+          success:true,
+          message:'Info found',
+          data:result
+      })
+  } catch (error) {
+      next(error)
+  }
+})
+
 export const FacultyController = {
   getAllFaculties,
   getSingleFaculty,
   updateFaculty,
   deleteFaculty,
+  checkIfFacultyDuplicate
 };
+
+

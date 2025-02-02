@@ -2,11 +2,14 @@ import express from "express";
 import { managementController } from "./controller";
 import validationRequest from "../../middlewares/validationRequest";
 import { managementDepartmentValidation } from "./validation";
+import auth from "../../middlewares/auth";
+import { ENUM_USER_ROLE } from "../../../enums/user";
 
 const router = express.Router();
 
 router.post(
   "/create-department",
+  auth(ENUM_USER_ROLE.ADMIN,ENUM_USER_ROLE.SUPER_ADMIN),
   validationRequest(
     managementDepartmentValidation.createManagementDepartmentZodSchema
   ),
@@ -16,6 +19,7 @@ router.post(
 router.get("/:id", managementController.getSingleDepartment);
 router.put(
   "/:id",
+  auth(ENUM_USER_ROLE.ADMIN,ENUM_USER_ROLE.SUPER_ADMIN),
   validationRequest(
     managementDepartmentValidation.updateManagementDepartmentZodSchema
   ),

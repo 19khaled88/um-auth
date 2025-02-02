@@ -17,6 +17,8 @@ import { AcademicDepartment } from "./model";
 import { academicDepartmentSearchableFiels } from "../../../constants/academicDepartment";
 import { AcademicFaculty } from "../academicFaculty/model";
 
+
+
 const createAcademicDepartment = async (
   academicDepartment: IAcademicDepartment
 ): Promise<IAcademicDepartment | null> => {

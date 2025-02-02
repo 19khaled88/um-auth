@@ -8,44 +8,66 @@ cloudinary.config({
 });
 
 
-
-
-const deleteFromCloudinary = async (public_ids: string | string[], type: 'single' | 'multiple'): Promise<void> => {
+const deleteFromCloudinary = async (
+    public_ids: string | string[],
+    type: 'single' | 'multiple'
+): Promise<{ result: string }> => {
     return new Promise((resolve, reject) => {
+        const sanitizePublicId = (id: string): string => {
+
+            const parts = id.split('/');
+            const fileNameWithExtension = parts[parts.length - 1]; // "m2kakulr0id0lgfxs64k.png"
+
+            // Split by dot to remove the extension
+            const publicId = fileNameWithExtension.split('.')[0]; // "m2kakulr0id0lgfxs64k"
+            return publicId
+        };
+
+        
         try {
             if (type === 'single') {
-                // Ensure public_ids is a string for single deletion
-                if (typeof public_ids !== 'string') {
-                    return reject(new Error('For single deletion, public_ids must be a string.'));
+                if (typeof public_ids !== 'string' || !public_ids.trim()) {
+                    return reject(new Error('For single deletion, public_ids must be a non-empty string.'));
                 }
 
-                // For single file delete
-                cloudinary.uploader.destroy(public_ids, (error, result) => {
+                const sanitizedId = sanitizePublicId(public_ids);
+
+                cloudinary.uploader.destroy(sanitizedId, (error, result) => {
+                   
                     if (error) {
-                        return reject(error); // Reject the promise on error
+                        return reject(error);
                     }
-                    
-                    resolve(result); // Resolve the promise with the result
+                    if (result.result === 'not found') {
+                        console.warn(`Resource with public_id "${public_ids}" not found in Cloudinary.`);
+                    }
+                    resolve(result);
                 });
             } else if (type === 'multiple') {
-                // Ensure public_ids is an array for multiple deletion
-                if (!Array.isArray(public_ids)) {
-                    return reject(new Error('For multiple deletion, public_ids must be an array of strings.'));
+                if (!Array.isArray(public_ids) || public_ids.length === 0) {
+                    return reject(new Error('For multiple deletion, public_ids must be a non-empty array of strings.'));
                 }
 
-                // For multiple file delete
-                cloudinary.api.delete_resources(public_ids, (error, result) => {
-                    if (error) {
-                        return reject(error); // Reject the promise on error
-                    }
+                const sanitizedIds = public_ids.map(sanitizePublicId)
+
+                cloudinary.api.delete_resources(sanitizedIds, (error, result) => {
                     
-                    resolve(result); // Resolve the promise with the result
+                    if (error) {
+                        return reject(error);
+                    }
+                    if (result.deleted) {
+                        for (const [id, status] of Object.entries(result.deleted)) {
+                            if (status === 'not_found') {
+                                console.warn(`Resource with public_id "${id}" not found in Cloudinary.`);
+                            }
+                        }
+                    }
+                    resolve(result);
                 });
             } else {
                 return reject(new Error('Invalid type specified. Use "single" or "multiple".'));
             }
         } catch (err) {
-            reject(err); // Catch any synchronous errors and reject the promise
+            reject(err);
         }
     });
 };

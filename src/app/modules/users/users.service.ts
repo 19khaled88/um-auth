@@ -32,7 +32,7 @@ import { Faculty } from "../faculty/model";
 import { Admin } from "../admin/model";
 import { IAdmin } from "../admin/interface";
 import { RedisClient } from "../../../shared/redis";
-import { EVENT_FACULTY_CREATED, EVENT_STUDENT_CREATED } from "./users.constats";
+import { EVENT_ADMIN_CREATED, EVENT_FACULTY_CREATED, EVENT_STUDENT_CREATED } from "./users.constats";
 
 const createStudent = async (
   student: IStudent,
@@ -319,7 +319,7 @@ const createAdmin = async(
 
     user.role = 'admin';
 
-    let newUserAllData = null; 
+    let createdAdminData = null; 
 
     try {
       const id = await generateAdminId();
@@ -340,15 +340,16 @@ const createAdmin = async(
         throw new ApiError(httpStatus.BAD_REQUEST,'Failed to create user')
       }
 
-      newUserAllData = newUser;
+      createdAdminData = newUser;
 
 
     } catch (error) {
+
       throw error 
     }
 
-    if(newUserAllData){
-      newUserAllData = await User.findOne({id:newUserAllData.id}).populate({
+    if(createdAdminData){
+      createdAdminData = await User.findOne({id:createdAdminData.id}).populate({
         path:'admin',
         populate:[
           {
@@ -358,8 +359,15 @@ const createAdmin = async(
       })
     }
 
-    return newUserAllData
+    if(createdAdminData){
+      await RedisClient.publish(EVENT_ADMIN_CREATED,JSON.stringify(createdAdminData))
+    }
+
+    return createdAdminData
 }
+
+
+
 
 export const userService = {
   createStudent,

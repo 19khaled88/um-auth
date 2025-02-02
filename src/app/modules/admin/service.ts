@@ -11,6 +11,7 @@ import ApiError from "../../../errors/ApiError";
 import httpStatus from "http-status";
 import { User } from "../users/users.model";
 
+
 const getAllAdmins = async (
   filters: IAdminFilters,
   paginationOptions: IPagniationOptions

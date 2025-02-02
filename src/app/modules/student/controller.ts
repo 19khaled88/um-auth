@@ -21,12 +21,13 @@ const getAllStudents = catchAsnc(async(req:Request,res:Response,next:NextFunctio
          data:result.data
      })
     } catch (error) {
-     sendResponse(res,{
-         statusCode:httpStatus.INTERNAL_SERVER_ERROR,
-         success:false,
-         message:'No students found!',
-         data:null
-     })
+        next(error)
+    //  sendResponse(res,{
+    //      statusCode:httpStatus.INTERNAL_SERVER_ERROR,
+    //      success:false,
+    //      message:'No students found!',
+    //      data:null
+    //  })
     }
  })
 
@@ -41,12 +42,13 @@ const getAllStudents = catchAsnc(async(req:Request,res:Response,next:NextFunctio
             data:result
         })
     } catch (error) {
-        sendResponse(res,{
-            statusCode:httpStatus.INTERNAL_SERVER_ERROR,
-            success:false,
-            message:'Student for give ID not found!',
-            data:null
-        })
+        next(error)
+        // sendResponse(res,{
+        //     statusCode:httpStatus.INTERNAL_SERVER_ERROR,
+        //     success:false,
+        //     message:'Student for give ID not found!',
+        //     data:null
+        // })
     }
     
 })
@@ -68,6 +70,7 @@ const deleteStudent = catchAsnc(async(req:Request,res:Response,next:NextFunction
 })
 
 const updateStudent = catchAsnc(async(req:Request,res:Response,next:NextFunction)=>{
+    
    try {
         const result = await studentServices.updateStudent(req.params.id,req.body)
 
@@ -78,14 +81,30 @@ const updateStudent = catchAsnc(async(req:Request,res:Response,next:NextFunction
             data:result
         })
    } catch (error) {
-    console.log(error)
-        sendResponse(res,{
-            statusCode:httpStatus.INTERNAL_SERVER_ERROR,
-            success:false,
-            message:'Failed to update student info!',
-            data:null
-        }) 
+    next(error)
+        // sendResponse(res,{
+        //     statusCode:httpStatus.INTERNAL_SERVER_ERROR,
+        //     success:false,
+        //     message:'Failed to update student info!',
+        //     data:null
+        // }) 
    }
+})
+
+const checkIfStudentDuplicate = catchAsnc(async(req:Request,res:Response,next:NextFunction)=>{
+   
+    try {
+        const result = await studentServices.checkIfStudentDuplicate(req.query)
+
+        sendResponse(res,{
+            statusCode:httpStatus.OK,
+            success:true,
+            message:'Info found',
+            data:result
+        })
+    } catch (error) {
+        next(error)
+    }
 })
 
 
@@ -93,5 +112,6 @@ export const studentsController ={
     getAllStudents,
     singleStudent,
     deleteStudent,
-    updateStudent
+    updateStudent,
+    checkIfStudentDuplicate
 }

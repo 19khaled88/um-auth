@@ -4,7 +4,7 @@ import {
   IGenericResponse,
   IPagniationOptions,
 } from "../../../shared/interfaces";
-import { managementDepartmentSearchableFields } from "./constants";
+import { EVENT_MANAGEMENT_DEPARTMENT_CREATED, EVENT_MANAGEMENT_DEPARTMENT_DELETED, EVENT_MANAGEMENT_DEPARTMENT_UPDATED, managementDepartmentSearchableFields } from "./constants";
 import {
   IManagementDepartment,
   IManagementDepartmentFilters,
@@ -12,6 +12,7 @@ import {
 import { ManagementDepartment } from "./model";
 import ApiError from "../../../errors/ApiError";
 import httpStatus from "http-status";
+import { RedisClient } from "../../../shared/redis";
 
 const createDepartment = async (
   payload: IManagementDepartment
@@ -27,6 +28,9 @@ const createDepartment = async (
   }
 
   const result = await ManagementDepartment.create(payload);
+  if(result){
+    RedisClient.publish(EVENT_MANAGEMENT_DEPARTMENT_CREATED,JSON.stringify(result))
+  }
   return result;
 };
 
@@ -116,6 +120,9 @@ const updateDepartment = async (
       new: true,
     }
   );
+  if(result){
+    RedisClient.publish(EVENT_MANAGEMENT_DEPARTMENT_UPDATED,JSON.stringify(result))
+  }
   return result;
 };
 
@@ -129,6 +136,9 @@ const deleteDepartment = async (
     throw new ApiError(httpStatus.CONFLICT, `This department not exists.`);
   }
   const result = await ManagementDepartment.findByIdAndDelete(id);
+  if(result){
+    RedisClient.publish(EVENT_MANAGEMENT_DEPARTMENT_DELETED,JSON.stringify(result))
+  }
   return result;
 };
 

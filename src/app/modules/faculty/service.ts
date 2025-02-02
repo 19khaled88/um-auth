@@ -11,6 +11,7 @@ import ApiError from "../../../errors/ApiError";
 import httpStatus from "http-status";
 import { User } from "../users/users.model";
 import { RedisClient } from "../../../shared/redis";
+import { FileUploadCloudinary } from "../../../helper/cloudinary";
 
 const getAllFaculties = async (
   filters: IFacultyFilters,
@@ -90,6 +91,7 @@ const updateFaculty = async (
     throw new ApiError(httpStatus.NOT_FOUND, "Faculty not found");
   }
 
+  
   const { name, ...FacultyData } = payload;
   const updatedFacultyData: Partial<IFaculty> = { ...FacultyData };
 
@@ -115,6 +117,20 @@ const updateFaculty = async (
 
   return result;
 };
+
+const checkIfFacultyDuplicaate=async(data:any)=>{
+  try {
+    const result = await Faculty.findOne({
+        $or:[
+          {email: data.email}, 
+          {contactNo: data.contactNo}, 
+        ],
+    });
+    return result;
+  } catch (error) {
+      throw error;
+  }
+}
 
 const deleteFaculty = async (id: string): Promise<IFaculty | null> => {
   const isExist = await Faculty.findOne({ _id: id });
@@ -143,7 +159,15 @@ const deleteFaculty = async (id: string): Promise<IFaculty | null> => {
     }
 
     if(userDeleted.deletedCount === 1){
-      await RedisClient.publish(EVENT_FACULTY_DELETED,JSON.stringify(backupFaculty))
+      const res =await FileUploadCloudinary.deleteFromCloudinary(isExist.profileImage, 'single')
+
+      if(res.result != 'ok'){
+        await Faculty.create(backupFaculty);
+      }
+    }
+
+    if(userDeleted.deletedCount === 1){
+      await RedisClient.publish(EVENT_FACULTY_DELETED,JSON.stringify(backupFaculty));
     }
 
     return deletedFaculty;
@@ -157,4 +181,5 @@ export const facultySerivce = {
   getSingleFaculty,
   updateFaculty,
   deleteFaculty,
+  checkIfFacultyDuplicaate
 };
