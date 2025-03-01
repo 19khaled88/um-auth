@@ -7,6 +7,9 @@ export default {
     port:process.env.PORT,
     db_url:process.env.DATABASE_URL,
     default_st_pass:process.env.DEFAULT_STD_PASS,
+    default_fc_pass:process.env.DEFAULT_FAC_PASS,
+    default_adm_pass:process.env.DEFAULT_ADM_PASS,
+    default_sup_adm_pass:process.env.DEFAULT_SUP_ADM_PASS,
     bcyrpt_salt_rounds:process.env.BCRYPT_SALT_ROUNDS,
     jwt:{
         token:process.env.JWT_SECRET,

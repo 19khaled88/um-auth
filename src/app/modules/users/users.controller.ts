@@ -88,6 +88,24 @@ const createAdmin = catchAsnc(
   }
 );
 
+const createSuperAdmin =catchAsnc(async(req:Request,res:Response,next:NextFunction)=>{
+   try {
+    const {superAdmin, ...userData} = req.body
+    const result = await userService.createSuperAdmin(superAdmin,userData)
+
+    sendResponse<IUser>(res,{
+      statusCode:httpStatus.OK,
+      success:true,
+      message:'Super admin created successfully',
+      data:result,
+    })
+   
+   } catch (error) {
+    
+     next(error)
+   }
+})
+
 // const createUser:RequestHandler= async(req,res,next)=>{
 //   try {
 //      const {user} = req.body
@@ -169,6 +187,7 @@ export const userController = {
   createStudent,
   createFaculty,
   createAdmin,
+  createSuperAdmin,
   getUsers,
   singleUser,
   deleteUser,

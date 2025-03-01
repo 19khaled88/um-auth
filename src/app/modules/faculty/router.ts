@@ -7,7 +7,7 @@ import auth from "../../middlewares/auth";
 
 const router = express.Router();
 
-router.get("/checkDuplicate",FacultyController.checkIfFacultyDuplicate)
+router.get("/checkDuplicate",FacultyController.checkIfFacultyDuplicate);
 router.get(
   "/:id",
   auth(

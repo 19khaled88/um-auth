@@ -4,6 +4,7 @@ import { Types } from "mongoose";
 import { IStudent } from "../student/interface";
 import { IFaculty } from "../faculty/interface";
 import { IAdmin } from "../admin/interface";
+import { ISuperAdmin } from "../super-admin/interface";
 
 
 
@@ -16,6 +17,7 @@ export type IUser = {
     student?:Types.ObjectId | IStudent;
     faculty?:Types.ObjectId | IFaculty;
     admin?:Types.ObjectId | IAdmin;
+    superAdmin?:Types.ObjectId | ISuperAdmin;
 }
 
 

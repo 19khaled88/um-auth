@@ -7,6 +7,7 @@ import { FacultyZodValidation } from "../faculty/validation";
 import auth from "../../middlewares/auth";
 import { ENUM_USER_ROLE } from "../../../enums/user";
 import { AdminZodValidation } from "../admin/validation";
+import { SuperAdminZodValidation } from "../super-admin/validation";
 
 const router = express.Router();
 
@@ -33,7 +34,12 @@ router.post(
   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   userController.createAdmin
 );
-
+router.post(
+  "/create-super-admin",
+  validationRequest(SuperAdminZodValidation.createSuperAdminZodSchema),
+  auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
+  userController.createSuperAdmin
+);
 router.put("/:id", userController.updateUser);
 router.delete("/:id", userController.deleteUser);
 router.get("/:id", userController.singleUser);

@@ -32,7 +32,9 @@ import { Faculty } from "../faculty/model";
 import { Admin } from "../admin/model";
 import { IAdmin } from "../admin/interface";
 import { RedisClient } from "../../../shared/redis";
-import { EVENT_ADMIN_CREATED, EVENT_FACULTY_CREATED, EVENT_STUDENT_CREATED } from "./users.constats";
+import { EVENT_ADMIN_CREATED, EVENT_FACULTY_CREATED, EVENT_STUDENT_CREATED, EVENT_SUPER_ADMIN_CREATED } from "./users.constats";
+import { ISuperAdmin } from "../super-admin/interface";
+import { SuperAdmin } from "../super-admin/model";
 
 const createStudent = async (
   student: IStudent,
@@ -327,12 +329,12 @@ const createAdmin = async(
       admin.id = id;
 
       const newAdmin = await Admin.create(admin);
-
+     
       if(!newAdmin){
         throw new ApiError(httpStatus.BAD_REQUEST,'Failed to create admin') 
       }
 
-      user.admin = newAdmin._id;
+      user.admin = newAdmin._id
 
       const newUser = await User.create(user);
 
@@ -366,7 +368,63 @@ const createAdmin = async(
     return createdAdminData
 }
 
+const createSuperAdmin = async(
+  superAdmin:ISuperAdmin,
+  user:IUser
+):Promise<IUser | null>=>{
+  const isExist = await SuperAdmin.findOne({
+    $or:[
+      {email:superAdmin.email},
+      {contactNo:superAdmin.contactNo}
+    ]
+  });
 
+  if(isExist){
+    throw new ApiError(httpStatus.FOUND,'User already found with same email or contact no.')
+  }
+
+
+  if(!user.password){
+    user.password = config.default_sup_adm_pass as string;
+  }
+  user.role = 'super_admin';
+  let createSuperAdmin = null;
+
+  try {
+    const id = await generateSuperAdminId();
+    user.id = id;
+    superAdmin.id = id;
+    const newSuperAdmin = await SuperAdmin.create(superAdmin);
+    if(!newSuperAdmin){
+      throw new ApiError(httpStatus.BAD_REQUEST,'Failed to create super admin')
+    }
+    user.superAdmin = newSuperAdmin._id;
+
+    const newUser = await User.create(user);
+    if(!newUser){
+      throw new ApiError(httpStatus.BAD_REQUEST,'Failed to create user')
+    }
+    createSuperAdmin = newUser;
+  } catch (error) {
+    throw error
+  }
+
+  if(createSuperAdmin){
+    createSuperAdmin = await User.findOne({id:createSuperAdmin.id}).populate({
+      path:'superAdmin',
+      populate:[
+        {
+          path:'managementDepartment'
+        }
+      ]
+    })
+  }
+  if(createSuperAdmin){
+    await RedisClient.publish(EVENT_SUPER_ADMIN_CREATED,JSON.stringify(createSuperAdmin))
+  }
+  return createSuperAdmin;
+
+}
 
 
 export const userService = {
@@ -376,5 +434,6 @@ export const userService = {
   deleteUser,
   updateUser, 
   createAdmin,
-  createFaculty
+  createFaculty,
+  createSuperAdmin,
 };

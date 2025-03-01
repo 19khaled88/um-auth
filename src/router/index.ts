@@ -8,6 +8,7 @@ import { authRoutes } from "../app/modules/auth/route";
 import { facultyRoutes } from "../app/modules/faculty/router";
 import { managementDepartmentRoutes } from "../app/modules/managementDepartment/route";
 import { adminRoutes } from "../app/modules/admin/router";
+import { superAdminRoutes } from "../app/modules/super-admin/route";
 
 
 
@@ -29,6 +30,10 @@ const moduleRoutes = [
     {
         path:'/admin/',
         route:adminRoutes
+    },
+    {
+        path:'/superAdmin/',
+        route:superAdminRoutes
     },
     {
         path:'/students/',

@@ -37,6 +37,10 @@ const userSchema = new Schema<IUser,Record<string, unknown>,IUserMethods>(
     admin:{
         type:Schema.Types.ObjectId,
         ref:"Admin"
+    },
+    superAdmin:{
+        type:Schema.Types.ObjectId,
+        ref:"SuperAdmin"
     }
 },
 {
