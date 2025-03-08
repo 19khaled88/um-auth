@@ -32,7 +32,7 @@ import { Faculty } from "../faculty/model";
 import { Admin } from "../admin/model";
 import { IAdmin } from "../admin/interface";
 import { RedisClient } from "../../../shared/redis";
-import { EVENT_ADMIN_CREATED, EVENT_FACULTY_CREATED, EVENT_STUDENT_CREATED, EVENT_SUPER_ADMIN_CREATED } from "./users.constats";
+import { EVENT_ADMIN_CREATED, EVENT_FACULTY_CREATED, EVENT_STUDENT_CREATED, EVENT_SUPER_ADMIN_CREATE_RESPONSE, EVENT_SUPER_ADMIN_CREATED } from "./users.constats";
 import { ISuperAdmin } from "../super-admin/interface";
 import { SuperAdmin } from "../super-admin/model";
 
@@ -372,6 +372,7 @@ const createSuperAdmin = async(
   superAdmin:ISuperAdmin,
   user:IUser
 ):Promise<IUser | null>=>{
+
   const isExist = await SuperAdmin.findOne({
     $or:[
       {email:superAdmin.email},
@@ -412,16 +413,28 @@ const createSuperAdmin = async(
   if(createSuperAdmin){
     createSuperAdmin = await User.findOne({id:createSuperAdmin.id}).populate({
       path:'superAdmin',
-      populate:[
-        {
-          path:'managementDepartment'
-        }
-      ]
+      populate:[{path:'managementDepartment'}]
     })
   }
+  
   if(createSuperAdmin){
-    await RedisClient.publish(EVENT_SUPER_ADMIN_CREATED,JSON.stringify(createSuperAdmin))
+   await RedisClient.publish(EVENT_SUPER_ADMIN_CREATED,JSON.stringify(createSuperAdmin));
+
+
+   // Wait for the response event 
+   const success = await new Promise<boolean>((resolve)=>{
+    RedisClient.subscribe(EVENT_SUPER_ADMIN_CREATE_RESPONSE,async(e:string)=>{
+      const data = JSON.parse(e);
+      resolve(data.success)
+    })
+   });
+
+   if(!success){
+    throw new ApiError(httpStatus.BAD_REQUEST,"Super Admin not created")
+   }
   }
+
+  
   return createSuperAdmin;
 
 }
