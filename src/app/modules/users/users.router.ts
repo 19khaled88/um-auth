@@ -40,6 +40,7 @@ router.post(
   auth(ENUM_USER_ROLE.SUPER_ADMIN, ENUM_USER_ROLE.ADMIN),
   userController.createSuperAdmin
 );
+
 router.put("/:id", userController.updateUser);
 router.delete("/:id", userController.deleteUser);
 router.get("/:id", userController.singleUser);

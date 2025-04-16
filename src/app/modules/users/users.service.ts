@@ -368,77 +368,150 @@ const createAdmin = async(
     return createdAdminData
 }
 
-const createSuperAdmin = async(
-  superAdmin:ISuperAdmin,
-  user:IUser
-):Promise<IUser | null>=>{
+// const createSuperAdmin = async(
+//   superAdmin:ISuperAdmin,
+//   user:IUser
+// ):Promise<IUser | null>=>{
 
-  const isExist = await SuperAdmin.findOne({
-    $or:[
-      {email:superAdmin.email},
-      {contactNo:superAdmin.contactNo}
-    ]
-  });
+//   const isExist = await SuperAdmin.findOne({
+//     $or:[
+//       {email:superAdmin.email},
+//       {contactNo:superAdmin.contactNo}
+//     ]
+//   });
 
-  if(isExist){
-    throw new ApiError(httpStatus.FOUND,'User already found with same email or contact no.')
-  }
+//   if(isExist){
+//     throw new ApiError(httpStatus.FOUND,'User already found with same email or contact no.')
+//   }
 
 
-  if(!user.password){
-    user.password = config.default_sup_adm_pass as string;
-  }
-  user.role = 'super_admin';
-  let createSuperAdmin = null;
+//   if(!user.password){
+//     user.password = config.default_sup_adm_pass as string;
+//   }
+//   user.role = 'super_admin';
+//   let createSuperAdmin = null;
 
+//   try {
+//     const id = await generateSuperAdminId();
+//     user.id = id;
+//     superAdmin.id = id;
+//     const newSuperAdmin = await SuperAdmin.create(superAdmin);
+//     if(!newSuperAdmin){
+//       throw new ApiError(httpStatus.BAD_REQUEST,'Failed to create super admin')
+//     }
+//     user.superAdmin = newSuperAdmin._id;
+
+//     const newUser = await User.create(user);
+//     if(!newUser){
+//       throw new ApiError(httpStatus.BAD_REQUEST,'Failed to create user')
+//     }
+//     createSuperAdmin = newUser;
+//   } catch (error) {
+//     throw error
+//   }
+
+//   if(createSuperAdmin){
+//     createSuperAdmin = await User.findOne({id:createSuperAdmin.id}).populate({
+//       path:'superAdmin',
+//       populate:[{path:'managementDepartment'}]
+//     })
+//   }
+  
+//   if(createSuperAdmin){
+//    await RedisClient.publish(EVENT_SUPER_ADMIN_CREATED,JSON.stringify(createSuperAdmin));
+
+
+//    // Wait for the response event 
+//    const success = await new Promise<boolean>((resolve)=>{
+//     RedisClient.subscribe(EVENT_SUPER_ADMIN_CREATE_RESPONSE,async(e:string)=>{
+//       const data = JSON.parse(e);
+//       resolve(data.success)
+//     })
+//    });
+
+//    if(!success){
+//     throw new ApiError(httpStatus.BAD_REQUEST,"Super Admin not created")
+//    }
+//   }
+
+  
+//   return createSuperAdmin;
+
+// }
+
+
+const createSuperAdmin = async(superAdmin:ISuperAdmin,user:IUser):Promise<IUser | null>=>{
   try {
+    const isExist = await SuperAdmin.findOne({
+      $or:[{email:superAdmin.email},{contactNo:superAdmin.contactNo}]
+    });
+    if(isExist){
+      throw new ApiError(httpStatus.FOUND, "User already exists with same email or contact no. ")
+    }
+
+    if(!user.password){
+      user.password = config.default_sup_adm_pass as string;
+    }
+
+    user.role = 'super_admin';
+
+    // Generate Super Admin ID
     const id = await generateSuperAdminId();
     user.id = id;
     superAdmin.id = id;
+
+    // Create SuperAdmin document 
     const newSuperAdmin = await SuperAdmin.create(superAdmin);
+
     if(!newSuperAdmin){
-      throw new ApiError(httpStatus.BAD_REQUEST,'Failed to create super admin')
+      throw new ApiError(httpStatus.BAD_REQUEST, "Failed to create super admin");
     }
+
     user.superAdmin = newSuperAdmin._id;
 
+    // create user document 
     const newUser = await User.create(user);
     if(!newUser){
-      throw new ApiError(httpStatus.BAD_REQUEST,'Failed to create user')
+      throw new ApiError(httpStatus.BAD_REQUEST, "Failed to create user");
     }
-    createSuperAdmin = newUser;
+
+    // Populate Super Admin details
+    const populatedUser = await User.findOne({ id: newUser.id }).populate({
+      path: "superAdmin",
+      populate: [{ path: "managementDepartment" }],
+    })
+
+    if(!populatedUser){
+      throw new ApiError(httpStatus.BAD_REQUEST, "Failed to fetch user details");
+    }
+
+    // publish event to redis 
+    await RedisClient.publish(EVENT_SUPER_ADMIN_CREATED, JSON.stringify(populatedUser));
+
+    // Wait for the response event 
+    const success = await new Promise<boolean>((resolve,reject)=>{
+      const timeout = setTimeout(() => {
+        RedisClient.unsubscribe(EVENT_SUPER_ADMIN_CREATE_RESPONSE);
+        reject(new ApiError(httpStatus.REQUEST_TIMEOUT, "Redis response timeout"));
+      }, 10000); // Set timeout (10s)
+
+
+      RedisClient.subscribe(EVENT_SUPER_ADMIN_CREATE_RESPONSE,async(e:string)=>{
+        clearTimeout(timeout);
+        RedisClient.unsubscribe(EVENT_SUPER_ADMIN_CREATE_RESPONSE);
+        const data = JSON.parse(e);
+        resolve(data.success)
+      })
+    });
+
+    if(!success){
+      throw new ApiError(httpStatus.BAD_REQUEST,"Super Admin not created")
+    }
+    return populatedUser;
   } catch (error) {
-    throw error
+    throw error;
   }
-
-  if(createSuperAdmin){
-    createSuperAdmin = await User.findOne({id:createSuperAdmin.id}).populate({
-      path:'superAdmin',
-      populate:[{path:'managementDepartment'}]
-    })
-  }
-  
-  if(createSuperAdmin){
-   await RedisClient.publish(EVENT_SUPER_ADMIN_CREATED,JSON.stringify(createSuperAdmin));
-
-
-   // Wait for the response event 
-   const success = await new Promise<boolean>((resolve)=>{
-    RedisClient.subscribe(EVENT_SUPER_ADMIN_CREATE_RESPONSE,async(e:string)=>{
-      const data = JSON.parse(e);
-      resolve(data.success)
-    })
-   });
-
-   if(!success){
-    throw new ApiError(httpStatus.BAD_REQUEST,"Super Admin not created")
-   }
-  }
-
-  
-  return createSuperAdmin;
-
 }
-
 
 export const userService = {
   createStudent,
